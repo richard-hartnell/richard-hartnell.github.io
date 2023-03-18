@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "LemonMilk";
+    src: url(./LEMONMILK-Bold.otf) format('opentype');
+    font-style: normal;
+    font-weight: 700;
+}
+@font-face {
+    font-family: "LemonMilk";
+    src: url(./LEMONMILK-Regular.otf) format('opentype');
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "LemonMilk";
+    src: url(./LEMONMILK-Light.otf) format('opentype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+body {
+    background-color: #330000;
+    color: white;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+a:link {
+    color: lightblue;
+
+}
+
+a:visited {
+    color: lightcoral;
+}
+
+a:hover {
+    color: teal;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-family: "LemonMilk", 'Gill Sans', Verdana, sans-serif;
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    color: goldenrod;
+    font-family: "LemonMilk", 'Gill Sans', Verdana, sans-serif;
+    font-weight: 600;
+}
+
+h3 {
+    text-align: center;
+    color: goldenrod;
+    font-family: "LemonMilk", 'Gill Sans', Verdana, sans-serif;
+    font-weight: 400;
+}
+
+img {
+    max-width: 75%;
+}
