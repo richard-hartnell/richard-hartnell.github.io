@@ -38,6 +38,10 @@ body {
     border: 3px;
 }
 
+.threetables {
+    column-count: 3;
+}
+
 a:link {
     color: lightblue;
 
