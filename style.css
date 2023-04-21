@@ -1,3 +1,8 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   text-align: center
 }
@@ -6,6 +11,136 @@ h2 {
   text-align: center
 }
 
+h5 {
+  text-transform: uppercase;
+}
+
 #icecreampic {
   background-color: red;
+}
+
+main {
+  background-color: #444444;
+}
+
+#header {
+  background-color: #000000;
+  background-image: url("/images/tents-bg.webp");
+  background-position: center;
+  text-align: center;
+  line-height: 1px;
+  z-index: 0;
+  height: 100vh;
+  width: auto;
+  width: 100%;
+  color: white;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  display:none; /* this is just for debugging */
+}
+
+#headertext {
+  padding-top: 20vh;
+  position: static;
+  text-align: center;
+  font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+#header h1 {
+  padding: 0px;
+  font-size: 8em;
+  color: red;
+  line-height: 110%;
+}
+
+#header h3 {
+  line-height: 10px;
+}
+
+#byline {
+  background-image: url("./images/enigma-bg.webp");
+  background-size:cover;
+  color: seashell;
+  text-align: center;
+  padding-top: 1.25em;  
+}
+
+#byline h4 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2em;
+}
+
+#byline aside {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#whyme {
+  background-color: #130041;
+  color: seashell;
+  display: flex;
+}
+
+.col {
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 4em;
+}
+
+#portfolio-slides {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+
+.figcaption {
+  
+  width: auto;
+}
+
+@media only screen and (orientation: landscape) {
+#portfolio-slides .child {
+  height: 0.5vh;
+  width: auto;
+}
+}
+
+:root {
+  --width: 300px;
+  --height: 100px;
+  --top-color: hsla(0,0,0,0);
+  --bottom-color: #130041;
+}
+
+.separator {
+  position: relative;
+  width: 100vw;
+  height: var(--height);
+}
+
+.separator::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--top-color);
+  clip-path: polygon(100% 0, 0 0, 0 100%);
+}
+
+.separator::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--bottom-color);
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+.separator.reverse {
+  transform: rotateY(180deg);
+}
+
+.vertical .separator.reverse {
+  transform: rotateX(180deg);
 }
