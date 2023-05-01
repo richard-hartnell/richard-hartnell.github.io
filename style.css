@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "LEMONMILK";
+  src: url('LEMONMILK-Regular.otf');
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -116,6 +121,7 @@ main {
 }
 
 #whyme-head {
+  font-family: 'LEMONMILK', Arial, Helvetica, sans-serif;
   text-align: center;
   color: seashell;
 }
@@ -293,7 +299,7 @@ figcaption h4 {
   position: relative;
   min-width: auto;
   padding: 0;
-  left: 5em;
+  left: 23%;
   /* border: 10px solid;
   border-image-slice: 1;
   border-width: 5px;
@@ -372,11 +378,11 @@ figcaption h4 {
   z-index: 99;
 }
 .slideshow-container .prev {
-  left: 20%;
+  left: 30%;
   border-radius: 3px 0 0 3px;
 }
 .slideshow-container .next {
-  right: 20%;
+  right: 30%;
   border-radius: 3px 0 0 3px;
 }
 .slideshow-container .prev:hover, .slideshow-container .next:hover {
