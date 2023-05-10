@@ -186,7 +186,8 @@ figcaption h3 {
 figcaption h4 {
   font-family: 'Courier New', Courier, monospace;
   text-transform: none;
-  font-size: 0.7em;
+  font-size: 0.5em;
+  justify-self: bottom;
   text-align: center;
 }
 
@@ -239,7 +240,6 @@ figcaption h4 {
   background-color: white;
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 1.5em;
 }
 
 #resume-contact a {
@@ -247,6 +247,10 @@ figcaption h4 {
   text-decoration: none;
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.5em;
+}
+
+#resume-contact:hover a {
+  color: rgb(194, 23, 123);
 }
 
 @media only screen and (orientation: landscape) {
@@ -288,10 +292,11 @@ figcaption h4 {
 /* experimental slider zone */
 
 .slideshow-container {
-  max-width: 50%;
+  max-width: 30%;
   position: relative;
   margin: auto;
-  min-width: 400px;
+  min-width: 40%;
+  min-height: 10em;
   padding: 0;
   left: 5%;
   border: 10px solid;
@@ -316,7 +321,7 @@ figcaption h4 {
 }
 .slideshow-container .mySlides .numbertext {
   color: #f2f2f2;
-  font-size: 12px;
+  font-size: 14px;
   padding: 8px 12px;
   text-align: center;
 }
@@ -324,8 +329,9 @@ figcaption h4 {
   text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   text-align: center;
   color: #FFFFFF;
-  font-size: 18px;
+  font-size: 24px;
   padding: 8px 4px;
+  min-width: 4ch;
 }
 @media (min-width: 768px) {
   .slideshow-container .mySlides .text {
@@ -341,7 +347,7 @@ figcaption h4 {
 }
 .slideshow-container .mySlides .designation {
   text-align: center;
-  font-size: 14px;
+  font-size: 18px;
   color: #ffffff;
 }
 .slideshow-container .bg1 {
