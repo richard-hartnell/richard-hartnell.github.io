@@ -176,6 +176,11 @@ main {
   color: white;
   text-shadow: 1px 1px 2px red, 0 0 0.5em blue;
   margin: 30px 0;
+  transition: all 0.5s ease-in-out;
+}
+
+#portfolio-slides figcaption:hover {
+  /* background-image: url('./images/evio.webp'); HERE IS YOUR BLUR */
 }
 
 figcaption h3 {
@@ -189,6 +194,7 @@ figcaption h4 {
   font-size: 0.5em;
   justify-self: bottom;
   text-align: center;
+  display: none;
 }
 
 /* FRAMED FOLIO ITEMS */
@@ -233,6 +239,7 @@ figcaption h4 {
   align-content: center;
   text-decoration: none;
   color: white;
+  transition: all 0.5s ease-out;
 }
 
 #resume-contact:hover {
