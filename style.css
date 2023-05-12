@@ -2,6 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: black;
+  width: 100vw;
 }
 
 h1 {
@@ -127,6 +128,14 @@ main {
 #testimonials {
   /* padding: 0 5%; */
   width: 50%;
+}
+
+#whyme a {
+  color: white;
+}
+
+#whyme a:visited {
+  color: white;
 }
 
 #clients {
