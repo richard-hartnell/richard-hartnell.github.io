@@ -1,5 +1,7 @@
 function $(_) {document.body.getElementById(_)};
 
+folioSlides = document.getElementsByTagName('figcaption');
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -27,8 +29,15 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
-function folioChange() {
-  console.log("It works");
+function addListener() {
+  console.log("addListener response");
+  // elem.addEventListener("click", testFunc);
 }
 
-$('figcaption').addEventListener('click', folioChange());
+function testFunc() {
+  console.log("testFunc response");
+}
+
+for (i=0;i<folioSlides.length;i++) {
+  folioSlides[i].addEventListener("click", testFunc);
+}
