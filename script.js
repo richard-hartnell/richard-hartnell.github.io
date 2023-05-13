@@ -29,15 +29,23 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
-function addListener() {
-  console.log("addListener response");
-  // elem.addEventListener("click", testFunc);
+function hideDeets() {
+  let the_h4 = this.getElementsByTagName('h4')[0];
+  if (the_h4.style.display == "block") {
+    the_h4.style.display = "none"
+  }
 }
 
-function testFunc() {
-  console.log("testFunc response");
+function showDeets() {
+  let the_h4 = this.getElementsByTagName('h4')[0];
+  if (the_h4.style.display == "block") {
+    the_h4.style.display = "none"
+  } else {
+    the_h4.style.display = "block"
+  }
 }
 
 for (i=0;i<folioSlides.length;i++) {
-  folioSlides[i].addEventListener("click", testFunc);
+  folioSlides[i].addEventListener("mouseover", showDeets);
+  folioSlides[i].addEventListener("mouseout", hideDeets);
 }

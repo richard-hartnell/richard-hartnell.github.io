@@ -188,10 +188,6 @@ main {
   transition: all 0.5s ease-in-out;
 }
 
-#portfolio-slides figcaption:hover {
-  /* background-image: url('./images/evio.webp'); HERE IS YOUR BLUR */
-}
-
 figcaption h3 {
   text-justify: center;
   text-align: center;
@@ -204,6 +200,7 @@ figcaption h4 {
   justify-self: bottom;
   text-align: center;
   display: none;
+  transition: all 0.5s ease-in-out;
 }
 
 /* FRAMED FOLIO ITEMS */
