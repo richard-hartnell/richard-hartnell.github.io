@@ -31,17 +31,17 @@ function showSlides(n) {
 
 function hideDeets() {
   let the_h4 = this.getElementsByTagName('h4')[0];
-  if (the_h4.style.display == "block") {
-    the_h4.style.display = "none"
+  if (the_h4.style.opacity == "1") {
+    the_h4.style.opacity = "0"
   }
 }
 
 function showDeets() {
   let the_h4 = this.getElementsByTagName('h4')[0];
-  if (the_h4.style.display == "block") {
-    the_h4.style.display = "none"
+  if (the_h4.style.opacity == "1") {
+    the_h4.style.opacity = "0"
   } else {
-    the_h4.style.display = "block"
+    the_h4.style.opacity = "1"
   }
 }
 

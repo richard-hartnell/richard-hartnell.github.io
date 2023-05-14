@@ -178,7 +178,7 @@ main {
   background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   font-size: 1.7em;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: uppercase;
@@ -199,8 +199,9 @@ figcaption h4 {
   font-size: 0.5em;
   justify-self: bottom;
   text-align: center;
-  display: none;
+  opacity: 0;
   transition: all 0.5s ease-in-out;
+  padding-bottom: 20px;
 }
 
 /* FRAMED FOLIO ITEMS */
