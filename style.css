@@ -118,6 +118,18 @@ main {
 #whyme-head {
   text-align: center;
   color: seashell;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#whyme-head h1 {
+  font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  font-size: 2em;
+}
+
+#whyme-head h4 {
+  display: inline-flex;
+  gap: 15px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #whyme-sectioned {
@@ -342,7 +354,7 @@ figcaption h4 {
   text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   text-align: center;
   color: #FFFFFF;
-  font-size: 24px;
+  font-size: 20px;
   padding: 8px 4px;
   min-width: 4ch;
 }
