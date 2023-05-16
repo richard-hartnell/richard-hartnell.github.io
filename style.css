@@ -112,7 +112,7 @@ main {
   background: linear-gradient(315deg, #42378f 0%, #f53844 74%);
   display: flex;
   padding: 2.5em 0;
-  margin-bottom: 0;
+  /* margin-bottom: 0; */
 }
 
 #whyme-head {
@@ -122,7 +122,11 @@ main {
 
 #whyme-sectioned {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto 15%;
+  gap: 20px;
 }
 
 #testimonials {
@@ -181,27 +185,33 @@ main {
   justify-content: space-around;
   font-size: 1.7em;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-transform: uppercase;
-  color: white;
-  text-shadow: 1px 1px 2px red, 0 0 0.5em blue;
   margin: 30px 0;
   transition: all 0.5s ease-in-out;
 }
 
+span {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
 figcaption h3 {
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 1px 1px 2px red, 0 0 0.5em blue;
   text-justify: center;
   text-align: center;
+  opacity: 100% !important;
 }
 
 figcaption h4 {
   font-family: 'Courier New', Courier, monospace;
-  text-transform: none;
+  color: white;
+  background-color: (255, 255, 255, 0.5);
+  text-shadow: 3px 3px black;
   font-size: 0.5em;
   justify-self: bottom;
   text-align: center;
   opacity: 0;
-  transition: all 0.5s ease-in-out;
-  padding-bottom: 20px;
+  transition: all 0.6s ease-in-out;
 }
 
 /* FRAMED FOLIO ITEMS */
@@ -209,6 +219,28 @@ figcaption h4 {
 #circusguild {
   background-image: url('./images/BCG.webp');
   background-position: center;
+}
+
+#polaquote {
+  font-size: initial;
+}
+
+#casandraquote {
+  font-size: initial;
+}
+/* @media only screen and (orientation: portrait) {
+ 
+/* 
+#clients {
+  max-width: 0.5vw;
+} */
+/* 
+.slideshow-container .mySlides {
+min-width: 39%;
+}  */
+
+#michaelquote {
+  font-size: initial;
 }
 
 #evio {
@@ -273,6 +305,8 @@ figcaption h4 {
   width: auto;
 }}
 
+/* SLANTY SEPARATOR */
+
 .separator{
   width:100vw;
   margin:0 auto;
@@ -303,14 +337,15 @@ figcaption h4 {
   border-top:0;
 }
 
-/* experimental slider zone */
+/* SLIDER ZONE */
 
 .slideshow-container {
-  max-width: 30%;
+  background: linear-gradient(110deg, #000000 0%, #56050a 74%);
+  /* max-width: 30%; */
   position: relative;
   margin: auto;
-  min-width: 40%;
-  min-height: 10em;
+  
+  min-height: 32em;
   padding: 0;
   left: 5%;
   border: 10px solid;
@@ -319,13 +354,13 @@ figcaption h4 {
   border-image-source: linear-gradient(to left, #FF9800, #182860);
 }
 .slideshow-container .mySlides {
-  min-height: 250px;
+  /* min-height: 250px; */
   display: none;
   padding: 30px 10px;
 }
 @media (min-width: 768px) {
   .slideshow-container .mySlides {
-    min-height: 370px;
+    /* min-height: 700px; */
   }
 }
 @media (min-width: 768px) {
@@ -389,7 +424,7 @@ figcaption h4 {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  z-index: 99;
+  z-index: 98;
 }
 .slideshow-container .prev {
   left: 0;
@@ -407,11 +442,20 @@ figcaption h4 {
   height: 15px;
   width: 15px;
   margin: 0 2px;
+  position: absolute;
+  bottom: 40px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
   -webkit-transition: background-color 0.6s ease;
   transition: background-color 0.6s ease;
+}
+
+.dot1 {
+  translate: -25px;
+}
+.dot3 {
+  translate: 25px;
 }
 .active, .dot:hover {
   background-color: #717171;
