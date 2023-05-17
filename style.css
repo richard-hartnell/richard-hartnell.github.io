@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Impact;
+  src: url("./impact.ttf");
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -334,7 +339,6 @@ figcaption h3 {
   text-shadow: 1px 1px 2px red, 0 0 0.5em blue;
   text-justify: center;
   text-align: center;
-  /* opacity: 100% !important; */
 }
 
 figcaption h4 {
