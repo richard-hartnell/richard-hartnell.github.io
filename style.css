@@ -3,6 +3,11 @@
   src: url('./impact.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Firs Neue Roman';
+  src: url('./Firs_Neue_Roman.ttf') format('truetype');
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -91,6 +96,7 @@ main {
 #byline h4 {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.2em;
+  padding-bottom: 1em;
 }
 
 #byline aside {
@@ -112,7 +118,8 @@ main {
 #whyme-head {
   text-align: center;
   color: seashell;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  padding-bottom: 10px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 #whyme-sectioned {
@@ -128,6 +135,14 @@ main {
 .col {
   font-family: 'Courier New', Courier, monospace;
   line-height: 3em;
+  text-align: center;
+}
+
+#vertical {
+  border-left: 1px solid #333333;
+  height: 200px;
+  position:absolute;
+  left: 50%;
 }
 
 #whyme a {
@@ -139,16 +154,16 @@ main {
 }
 
 #clients {
-  width: 260px;
   /* padding: 40px 20px; */
   /* margin: auto 0; */
-  font-family: Impact, 'Arial Narrow Bold', sans-serif;
-  font-size: 1.36em;
+  font-family: 'Firs Neue Roman', 'Arial Narrow Bold', sans-serif;
+  font-size: 0.9em;
   color: gold;
   text-shadow: 2px 2px 10px #444;
   text-transform: uppercase;
-  text-align: justify;
-  /* min-width: 263px; */
+  text-align: right;
+  translate: 15% 0;
+  min-width: 175px;
 }
 
 /* SLIDER ZONE */
@@ -165,10 +180,6 @@ main {
   bottom: 40%;
 }
 
-#slide-centerer {
-  /* padding-top: 25%; */
-}
-
 .designation {
   position: absolute;
   left: 0;
@@ -181,9 +192,8 @@ main {
   background: linear-gradient(110deg, #000000 0%, #56050a 74%);
   position: relative;
   margin: auto;
-  
   min-height: 32em;
-  padding: 0;
+  padding-top: 0;
   left: 5%;
   border: 10px solid;
   border-image-slice: 1;
