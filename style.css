@@ -47,17 +47,6 @@ body {
   animation-fill-mode: forwards;
 }
 
-@keyframes fadeInAnimation {
-  0% {
-      opacity: 0;
-      
-  }
-  100% {
-      opacity: 1;
-      
-   }
-}
-
 #header h1 {
   padding: 0px;
   font-size: 8em;
@@ -110,7 +99,7 @@ main {
 
 #whyme {
   background: linear-gradient(315deg, #42378f 0%, #f53844 74%);
-  display: flex;
+  /* display: flex; */
   padding: 2.5em 0;
   /* margin-bottom: 0; */
 }
@@ -118,20 +107,22 @@ main {
 #whyme-head {
   text-align: center;
   color: seashell;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 #whyme-sectioned {
+  width: 50%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin: auto 15%;
-  gap: 20px;
+  gap: 40px;
 }
 
-#testimonials {
-  /* padding: 0 5%; */
-  width: 50%;
+.col {
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 3em;
 }
 
 #whyme a {
@@ -143,189 +134,46 @@ main {
 }
 
 #clients {
-  width: 20%;
-  padding: 40px 10%;
-  margin: auto 0;
+  width: 260px;
+  /* padding: 40px 20px; */
+  /* margin: auto 0; */
   font-family: Impact, 'Arial Narrow Bold', sans-serif;
   font-size: 1.36em;
   color: gold;
   text-shadow: 2px 2px 10px #444;
   text-transform: uppercase;
   text-align: justify;
-  min-width: 263px;
-}
-
-.col {
-  font-family: 'Courier New', Courier, monospace;
-  line-height: 3em;
-}
-
-#portfolio {
-  color: seashell;
-  font-family: 'Courier New', Courier, monospace;
-  flex-direction: column;
-  justify-content: center;
-  background-color: black;
-}
-
-#portfolio-slides {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 10%;
-}
-
-#portfolio-slides figcaption {
-  width: 300px;
-  height: 225px;
-  box-shadow: 0px 0px 10px 10px white;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  font-size: 1.7em;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 30px 0;
-  transition: all 0.5s ease-in-out;
-}
-
-span {
-  background-color: rgba(0, 0, 0, 0.65);
-}
-
-figcaption h3 {
-  text-transform: uppercase;
-  color: white;
-  text-shadow: 1px 1px 2px red, 0 0 0.5em blue;
-  text-justify: center;
-  text-align: center;
-  opacity: 100% !important;
-}
-
-figcaption h4 {
-  font-family: 'Courier New', Courier, monospace;
-  color: white;
-  background-color: (255, 255, 255, 0.5);
-  text-shadow: 3px 3px black;
-  font-size: 0.5em;
-  justify-self: bottom;
-  text-align: center;
-  opacity: 0;
-  transition: all 0.6s ease-in-out;
-}
-
-/* FRAMED FOLIO ITEMS */
-
-#circusguild {
-  background-image: url('./images/BCG.webp');
-  background-position: center;
-}
-
-#polaquote {
-  font-size: initial;
-}
-
-#casandraquote {
-  font-size: initial;
-}
-
-#michaelquote {
-  font-size: initial;
-}
-
-#evio {
-  background-image: url('./images/evio.webp');
-  background-position: center;
-}
-
-#ssdp {
-  background-image: url('./images/ssdp.webp');
-  background-position: center;
-}
-
-#quarry {
-  background-image: url('./images/quarry.webp');
-  background-position: center;
-}
-
-#bdamn {
-  background-image: url('./images/downtownbham.webp');
-  background-position: center;
-}
-
-#knw {
-  background-image: url('./images/fire.webp');
-  background-position: center;
-}
-
-#resume-contact {
-  text-align: center;
-  width: 100%;
-  background-color: rgb(194, 23, 123);
-  height: 5em;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  text-decoration: none;
-  color: white;
-  transition: all 0.5s ease-out;
-}
-
-#resume-contact:hover {
-  color: rgb(194, 23, 123);
-  background-color: white;
-  text-decoration: none;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-#resume-contact a {
-  color: white;
-  text-decoration: none;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.5em;
-}
-
-#resume-contact:hover a {
-  color: rgb(194, 23, 123);
-}
-
-/* SLANTY SEPARATOR */
-
-.separator{
-  width:100vw;
-  margin:0 auto;
-}
-.separator:before, .separator:after{
-  content:'';
-  display:block;
-}
-
-.top:before{
-  border-left: 100vw solid transparent;
-  border-bottom: 0px solid black;
-  border-right:0;
-  border-top:0;
-}
-.top:after{
-  border-right: 100vw solid #000;
-  border-top: 80px solid transparent;
-  border-left:0;
-  border-bottom:0;
-  margin-top:-45px;
-}
-
-.bottom:before{
-  border-left: 100vw solid #130041;
-  border-bottom: 35px solid transparent;
-  border-right:0;
-  border-top:0;
+  /* min-width: 263px; */
 }
 
 /* SLIDER ZONE */
 
+.numbertext {
+  display: none;
+}
+
+#slide-centerer img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 40%;
+}
+
+#slide-centerer {
+  /* padding-top: 25%; */
+}
+
+.designation {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 30%;
+}
+
 .slideshow-container {
   background: linear-gradient(110deg, #000000 0%, #56050a 74%);
-  /* max-width: 30%; */
   position: relative;
   margin: auto;
   
@@ -338,11 +186,12 @@ figcaption h4 {
   border-image-source: linear-gradient(to left, #FF9800, #182860);
 }
 .slideshow-container .mySlides {
-  /* min-height: 250px; */
+  height: 400px;
+  width: 300px;
   display: none;
   padding: 30px 10px;
+  margin-top: 25%;
 }
-
 
 .slideshow-container .mySlides .numbertext {
   color: #f2f2f2;
@@ -433,6 +282,7 @@ figcaption h4 {
 .active, .dot:hover {
   background-color: #717171;
 }
+
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
@@ -440,6 +290,172 @@ figcaption h4 {
   -webkit-animation-duration: 1.5s;
           animation-duration: 1.5s;
 }
+/* MISC STUFF THAT WORKS */
+
+
+#portfolio {
+  color: seashell;
+  font-family: 'Courier New', Courier, monospace;
+  flex-direction: column;
+  justify-content: center;
+  background-color: black;
+}
+
+#portfolio-slides {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10%;
+}
+
+#portfolio-slides figcaption {
+  width: 300px;
+  height: 225px;
+  box-shadow: 0px 0px 10px 10px white;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1.7em;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 30px 0;
+  transition: all 0.5s ease-in-out;
+}
+
+span {
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  font-size: 1.1em;
+}
+
+figcaption h3 {
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 1px 1px 2px red, 0 0 0.5em blue;
+  text-justify: center;
+  text-align: center;
+  /* opacity: 100% !important; */
+}
+
+figcaption h4 {
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  background-color: (255, 255, 255, 0.5);
+  text-shadow: 3px 3px black;
+  font-size: 0.5em;
+  justify-self: bottom;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+}
+
+#resume-contact {
+  text-align: center;
+  width: 100%;
+  background-color: rgb(194, 23, 123);
+  height: 5em;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-decoration: none;
+  color: white;
+  transition: all 0.5s ease-out;
+}
+
+#resume-contact:hover {
+  color: rgb(194, 23, 123);
+  background-color: white;
+  text-decoration: none;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#resume-contact a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.5em;
+}
+
+#resume-contact:hover a {
+  color: rgb(194, 23, 123);
+}
+
+/* FRAMED FOLIO ITEMS */
+
+#circusguild {
+  background-image: url('./images/BCG.webp');
+  background-position: center;
+}
+
+#polaquote {
+  font-size: initial;
+}
+
+#casandraquote {
+  font-size: initial;
+}
+
+#michaelquote {
+  font-size: initial;
+}
+
+#evio {
+  background-image: url('./images/evio.webp');
+  background-position: center;
+}
+
+#ssdp {
+  background-image: url('./images/ssdp.webp');
+  background-position: center;
+}
+
+#quarry {
+  background-image: url('./images/quarry.webp');
+  background-position: center;
+}
+
+#bdamn {
+  background-image: url('./images/downtownbham.webp');
+  background-position: center;
+}
+
+#knw {
+  background-image: url('./images/fire.webp');
+  background-position: center;
+}
+
+/* SLANTY SEPARATOR */
+
+.separator{
+  width:100vw;
+  margin:0 auto;
+}
+.separator:before, .separator:after{
+  content:'';
+  display:block;
+}
+
+.top:before{
+  border-left: 100vw solid transparent;
+  border-bottom: 0px solid black;
+  border-right:0;
+  border-top:0;
+}
+.top:after{
+  border-right: 100vw solid #000;
+  border-top: 80px solid transparent;
+  border-left:0;
+  border-bottom:0;
+  margin-top:-45px;
+}
+
+.bottom:before{
+  border-left: 100vw solid #130041;
+  border-bottom: 35px solid transparent;
+  border-right:0;
+  border-top:0;
+}
+
 @-webkit-keyframes fade {
   from {
     opacity: .4;
@@ -448,6 +464,7 @@ figcaption h4 {
     opacity: 1;
   }
 }
+
 @keyframes fade {
   from {
     opacity: .4;
@@ -457,11 +474,23 @@ figcaption h4 {
   }
 }
 
-@media only screen and (orientation: landscape) {
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+      
+  }
+  100% {
+      opacity: 1;
+      
+   }
+}
+
+/* @media only screen and (orientation: landscape) {
 #portfolio-slides .child {
   height: 0.5vh;
   width: auto;
-}}
+}} */
 
 /* @media (min-width: 768px) {
   .slideshow-container .mySlides {
@@ -480,3 +509,4 @@ figcaption h4 {
     font-size: 11px;
   }
 }
+
