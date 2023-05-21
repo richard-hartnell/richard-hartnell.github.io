@@ -39,14 +39,14 @@ body {
 #header {
   text-align: center;
   z-index: -4;
-  height: 95vh;
+  height: 80vh;
   width: 100%;
   color: white;
   text-shadow: 2px 2px 10px black;
 }
 
 #headertext {
-  padding-top: 15%;
+  padding-top: 5%;
   position: fixed;
   z-index: 0;
   left: 50%;
@@ -102,7 +102,7 @@ main {
 
 #byline aside {
   display: flex;
-  font-size: 1.1em;
+  font-size: 1.0em;
   line-height: 1px;
   align-items: center;
   justify-content: space-around;
@@ -528,3 +528,12 @@ figcaption h4 {
   }
 }
 
+@media only screen and (orientation: portrait) {
+  #header {
+    height: 115vh;
+  }
+
+  #headertext {
+    padding-top: 20%;
+  }
+}
