@@ -118,6 +118,11 @@ main {
   padding-bottom: 5em;
 }
 
+#websites {
+  background-color: teal;
+  
+}
+
 #whyme {
   background: linear-gradient(315deg, #42378f 0%, #f53844 74%);
   /* display: flex; */
@@ -316,7 +321,6 @@ main {
           animation-duration: 1.5s;
 }
 /* MISC STUFF THAT WORKS */
-
 
 #portfolio {
   color: seashell;
