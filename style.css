@@ -120,6 +120,29 @@ main {
 
 #websites {
   background-color: teal;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20%;
+}
+
+#admiralty {
+
+}
+
+#bcg {
+
+}
+
+#rifleflow {
+
+}
+
+#gravitydefiance {
+
+}
+
+#forwardflow {
   
 }
 
