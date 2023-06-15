@@ -14,4 +14,8 @@ let moveOutYear;
 let mortgageLength;
 let monthlyRent;
 let houseValue;
+let housemates;
+let rentDoubleRate = 10;
+
+
 
