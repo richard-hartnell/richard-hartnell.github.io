@@ -25,8 +25,7 @@ housemateSlider.oninput = function() {
   };
 };
 
-
-
+//house values
 let mortgageLength = 15; // mortgage length in years
 let houseValue = 500000 // replace this with houseValueOutput
 let initialRent = houseValue * 1.7 / 12 / mortgageLength * 2; // 1.7 is a rough factor from mortage rates. the *2 represents the rest of COL
@@ -34,6 +33,7 @@ let housemates = 5; // replace this with housemateOutput
 let marketRentDoubleRate = 10; //from market data
 let inflation = 1.03; //Federal Reserve goal rate for inflation is 2%. Let's add +1% to be generous.
 let inflationMR = 1.072; //housing inflation rate when rent doubles every 10 years
+let owed = 0;
 
 class Tenant {
   constructor(moveInYear, moveOutYear) {
@@ -41,28 +41,47 @@ class Tenant {
     let totalRentMR = 0;
     let earned = 0;
     for (let x = moveInYear; x <= moveOutYear; x++) {
-      thisYearRent = initialRent * (inflation**moveInYear) * 12;
+      let thisYearRent = initialRent * (inflation**moveInYear) * 12;
+      let thisYearRentMR = initialRent * (inflationMR**moveInYear) * 12;
       totalRent += thisYearRent;
+      totalRentMR += thisYearRentMR;
       if (x <= mortgageLength) {
-        earned += thisYearRent / 2;
-      earned = earned * inflation;
-      }
+        owed += thisYearRent / 2;
+      };
+      owed = owed * inflation; // it's a CPI-chained loan.
     };
-    totalRentMR = totalRent;
-    
-    
+
     this.moveInYear = moveInYear;
     this.moveOutYear = moveOutYear;
     this.paid = totalRent;
     this.earned = earned;
     this.saved = totalRentMR - totalRent;
-
-    //next, and maybe this will work:
-    //for (i = moveInYear; i <= mortgageLength; i++) {compound the 'earned' variable}
-
   }
 }
 
+let timeline = 100;
+
+function simulate(tenants) {
+  for (let i = 1; i < timeline; i++) {
+    console.log(`Year {i}`);
+    for (let tenant of tenants) {
+      // do stuff here
+    }
+  }
+  console.log("Remaining money owed on mortgage: ");
+  console.log("Remaining money owed past tenants: ");
+  console.log("Rent at end of timeline: ");
+  console.log("Market-rate rent at end of timeline: ");
+
+}
+
+// the house starts paying people back to the tune of 1/2 thisYearRent every year.
+// and then it pays back
+// this has gotten complicated.
+// the house can deal with old housemates as a lump.
+// and so, totalOwed would be something like (tenant.owed * housemates)
+// it would go up by {inflation} per year
+// and go down by {thisYearRent / 2} per year.
 
 
 // What is more to do?
