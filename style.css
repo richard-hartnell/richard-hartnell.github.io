@@ -127,23 +127,28 @@ main {
 }
 
 #admiralty {
-
+  background-image: url('./images/websites/admiralty.webp');
+  background-position: center;
 }
 
 #bcg {
-
+  background-image: url('./images/websites/bcg.webp');
+  background-position: center;
 }
 
 #rifleflow {
-
+  background-image: url('./images/websites/rifleflow.webp');
+  background-position: center;
 }
 
 #gravitydefiance {
-
+  background-image: url('./images/websites/gd.webp');
+  background-position: center;
 }
 
 #forwardflow {
-  
+  background-image: url('./images/websites/forwardflow.webp');
+  background-position: center;
 }
 
 #whyme {
@@ -573,3 +578,5 @@ figcaption h4 {
     padding-top: 20%;
   }
 }
+
+
