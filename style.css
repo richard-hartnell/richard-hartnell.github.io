@@ -211,16 +211,12 @@ main {
 
 /* SLIDER ZONE */
 
-.numbertext {
-  display: none;
-}
-
 #slide-centerer img {
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
-  bottom: 40%;
+  bottom: 30%;
 }
 
 .designation {
@@ -228,7 +224,7 @@ main {
   left: 0;
   right: 0;
   margin: auto;
-  bottom: 30%;
+  bottom: 20%;
 }
 
 .slideshow-container {
@@ -247,22 +243,16 @@ main {
 .slideshow-container .mySlides {
   height: 400px;
   width: 300px;
-  padding: 30px 10px;
-  margin-top: 25%;
+  padding: 10px 10px;
+  /* margin-top: 15%; */
 }
 
-.slideshow-container .mySlides .numbertext {
-  color: #f2f2f2;
-  font-size: 14px;
-  padding: 8px 12px;
-  text-align: center;
-}
 .slideshow-container .mySlides .text {
   text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   text-align: center;
   color: #FFFFFF;
   font-size: 24px;
-  padding: 8px 4px;
+  padding: 0px 4px;
   min-width: 4ch;
 }
 
@@ -276,7 +266,7 @@ main {
 
 .slideshow-container .mySlides .designation {
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   color: #ffffff;
 }
 .slideshow-container .bg1 {
@@ -447,15 +437,15 @@ figcaption h4 {
 }
 
 #polaquote {
-  font-size: initial;
+  /* font-size: initial; */
 }
 
 #casandraquote {
-  font-size: initial;
+  /* font-size: initial; */
 }
 
 #michaelquote {
-  font-size: initial;
+  /* font-size: initial; */
 }
 
 #evio {
