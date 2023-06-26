@@ -35,31 +35,61 @@ let inflation = 1.03; //Federal Reserve goal rate for inflation is 2%. Let's add
 let inflationMR = 1.072; //housing inflation rate when rent doubles every 10 years
 let owed = 0;
 
+const tenants = [];
+finalYear = 200;
+
 class Tenant {
   constructor(moveInYear, moveOutYear) {
     let totalRent = 0;
     let totalRentMR = 0;
     let earned = 0;
-    for (let x = moveInYear; x <= moveOutYear; x++) {
-      let thisYearRent = initialRent * (inflation**moveInYear) * 12;
-      let thisYearRentMR = initialRent * (inflationMR**moveInYear) * 12;
-      totalRent += thisYearRent;
-      totalRentMR += thisYearRentMR;
-      if (x <= mortgageLength) {
-        owed += thisYearRent / 2;
-      };
-      owed = owed * inflation; // it's a CPI-chained loan.
-    };
 
     this.moveInYear = moveInYear;
     this.moveOutYear = moveOutYear;
     this.paid = totalRent;
     this.earned = earned;
     this.saved = totalRentMR - totalRent;
+    this.lengthOfStay = moveOutYear - moveInYear;
+    this.paidBackYear = null;
+
+    for (let x = moveInYear; x <= moveOutYear; x++) {
+      let thisYearRent = initialRent * (inflation**moveInYear) * 12;
+      let thisYearRentMR = initialRent * (inflationMR**moveInYear) * 12;
+      totalRent += thisYearRent;      // append this year's rent
+      totalRentMR += thisYearRentMR; // to the tenant's rent total
+      if (x <= mortgageLength) {
+        owed += thisYearRent / 2; // we estimate half of market-rate rent goes toward equity, so this is what goes into the tenant loan
+      };
+      owed = owed * inflation; // it's a CPI-chained loan.
+      if (x > mortgageLength) {
+        if (owed > 0) {
+          owed -= (thisYearYent * 6 / housemates);
+          if (owed <= 0) {
+            this.paidBackYear = x;
+          }
+        }
+      }
+    };
+
+    getOutcome() {
+      return `This tenant paid ${this.paid}, saving ${this.saved} over `${this.lengthOfStay}` years compared to market-rate rent. `;
+    }
   }
 }
 
-let timeline = 100;
+// archetypes then.
+const tenant0 = new Tenant(0, (mortgageLength / 2));
+const tenant1 = new Tenant(0, mortgageLength);
+const tenant2 = new Tenant(0, mortgageLength + 10);
+const tenant3 = new Tenant(0, mortgageLength * 2);
+const tenant4 = new Tenant(mortgageLength / 2, mortgageLength * 0.75);
+const tenant5 = new Tenant(mortgageLength / 2, mortgageLength);
+const tenant6 = new Tenant(mortgageLength / 2, mortgageLength + 10);
+const tenant7 = new Tenant(mortgageLength / 2, mortgageLength * 2);
+const tenant8 = new Tenant(mortgageLength, mortgageLength + 10);
+const tenant9 = new Tenant(mortgageLength, mortgageLength * 2);
+const tenantA = new Tenant(mortgageLength * 2, mortgageLength * 3);
+const TenantB = new Tenant(mortgageLength * 3, mortgageLength * 4);
 
 function simulate(tenants) {
   for (let i = 1; i < timeline; i++) {
