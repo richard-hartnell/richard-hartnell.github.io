@@ -8,12 +8,14 @@
   src: url('./Firs_Neue_Roman.ttf') format('truetype');
 }
 
-html, body {
+html {
+
+}
+
+body {
   margin: 0;
   padding: 0;
   background-color: black;
-  width: 100%;
-  min-width: 600px;
 }
 
 h1 {
@@ -111,21 +113,22 @@ main {
 
 #websites {
   color: seashell;
-  height: 680px;
+  min-height: 800px;
   padding-bottom: 20px;
 }
 
 #websites-slides {
   display: flex;
-  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-wrap: wrap-reverse;
   justify-content: space-around;
   gap: 10%;
 }
 
 #websites-slides figcaption {
-  min-width: 400px;
-  min-height: 225px;
-  box-shadow: 0px 0px 4px 4px seashell;
+  min-width: 500px;
+  min-height: 375px;
+  box-shadow: 0px 0px 4px 4px #666;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -191,7 +194,7 @@ main {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: auto 15%;
+  margin: auto 0;
   gap: 10vw;
 }
 
