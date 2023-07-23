@@ -43,6 +43,7 @@ class Tenant {
     let totalRent = 0;
     let totalRentMR = 0;
     let earned = 0;
+    let thisYearRent;
 
     this.moveInYear = moveInYear;
     this.moveOutYear = moveOutYear;
@@ -52,29 +53,30 @@ class Tenant {
     this.lengthOfStay = moveOutYear - moveInYear;
     this.paidBackYear = null;
 
-    for (let x = moveInYear; x <= moveOutYear; x++) {
+    for (let thisYear = moveInYear; thisYear <= moveOutYear; thisYear++) {
       let thisYearRent = initialRent * (inflation**moveInYear) * 12;
       let thisYearRentMR = initialRent * (inflationMR**moveInYear) * 12;
       totalRent += thisYearRent;      // append this year's rent
       totalRentMR += thisYearRentMR; // to the tenant's rent total
-      if (x <= mortgageLength) {
+      if (thisYear <= mortgageLength) {
         owed += thisYearRent / 2; // we estimate half of market-rate rent goes toward equity, so this is what goes into the tenant loan
       };
       owed = owed * inflation; // it's a CPI-chained loan.
-      if (x > mortgageLength) {
+      if (thisYear > mortgageLength) {
         if (owed > 0) {
           owed -= (thisYearYent * 6 / housemates);
           if (owed <= 0) {
-            this.paidBackYear = x;
+            this.paidBackYear = thisYear;
           }
         }
       }
-    };
-
-    getOutcome() {
-      return `This tenant paid ${this.paid}, saving ${this.saved} over `${this.lengthOfStay}` years compared to market-rate rent. `;
     }
+
   }
+  getOutcome() {
+    return 0;
+  }
+
 }
 
 // archetypes then.
@@ -92,7 +94,7 @@ const tenantA = new Tenant(mortgageLength * 2, mortgageLength * 3);
 const TenantB = new Tenant(mortgageLength * 3, mortgageLength * 4);
 
 function simulate(tenants) {
-  for (let i = 1; i < timeline; i++) {
+  for (let i = 1; i < finalYear; i++) {
     console.log(`Year {i}`);
     for (let tenant of tenants) {
       // do stuff here
