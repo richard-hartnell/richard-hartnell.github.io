@@ -43,7 +43,7 @@ class Tenant {
     let totalRent = 0;
     let totalRentMR = 0;
     let earned = 0;
-    let thisYearRent;
+    let thisYearRent = 0;
 
     this.moveInYear = moveInYear;
     this.moveOutYear = moveOutYear;
@@ -64,7 +64,7 @@ class Tenant {
       owed = owed * inflation; // it's a CPI-chained loan.
       if (thisYear > mortgageLength) {
         if (owed > 0) {
-          owed -= (thisYearYent * 6 / housemates);
+          owed -= (thisYearRent * 6 / housemates);
           if (owed <= 0) {
             this.paidBackYear = thisYear;
           }
@@ -74,7 +74,9 @@ class Tenant {
 
   }
   getOutcome() {
-    return 0;
+    console.log(`This tenant moved in during year ${this.moveInYear} and out in ${this.moveOutYear}.
+                  They paid off $${this.paid} of the mortgage and received $${this.earned} paid back by year ${this.paidBackYear}.
+                  `);
   }
 
 }
