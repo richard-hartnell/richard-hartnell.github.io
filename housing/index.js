@@ -33,7 +33,7 @@ let housemates = 5; // replace this with housemateOutput
 let marketRentDoubleRate = 10; //from market data
 let inflation = 1.03; //Federal Reserve goal rate for inflation is 2%. Let's add +1% to be generous.
 let inflationMR = 1.072; //housing inflation rate when rent doubles every 10 years
-let owed = 0;
+let debt = 0;
 
 const tenants = [];
 finalYear = 200;
@@ -44,17 +44,21 @@ class Tenant {
     let totalRentMR = 0;
     let earned = 0;
     let thisYearRent = 0;
+    let owed = 0;
 
     this.moveInYear = moveInYear;
     this.moveOutYear = moveOutYear;
+
+    // This probably needs fixing.
     this.paid = totalRent;
     this.earned = earned;
+    //
     this.saved = totalRentMR - totalRent;
     this.lengthOfStay = moveOutYear - moveInYear;
     this.paidBackYear = null;
 
     for (let thisYear = moveInYear; thisYear <= moveOutYear; thisYear++) {
-      let thisYearRent = initialRent * (inflation**moveInYear) * 12;
+      thisYearRent = initialRent * (inflation**moveInYear) * 12;
       let thisYearRentMR = initialRent * (inflationMR**moveInYear) * 12;
       totalRent += thisYearRent;      // append this year's rent
       totalRentMR += thisYearRentMR; // to the tenant's rent total
@@ -76,6 +80,7 @@ class Tenant {
   getOutcome() {
     console.log(`This tenant moved in during year ${this.moveInYear} and out in ${this.moveOutYear}.
                   They paid off $${this.paid} of the mortgage and received $${this.earned} paid back by year ${this.paidBackYear}.
+
                   `);
   }
 
@@ -100,6 +105,7 @@ function simulate(tenants) {
     console.log(`Year {i}`);
     for (let tenant of tenants) {
       // do stuff here
+      
     }
   }
   console.log("Remaining money owed on mortgage: ");
