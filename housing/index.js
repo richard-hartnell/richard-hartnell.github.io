@@ -32,6 +32,7 @@ let initialRent = houseValue * 1.7 / 12 / mortgageLength * 2; // 1.7 is a rough 
 let housemates = 5; // replace this with housemateOutput
 let marketRentDoubleRate = 10; //from market data
 let inflation = 1.03; //Federal Reserve goal rate for inflation is 2%. Let's add +1% to be generous.
+let inflationDELT = 1.04; //Independent var; adjust a little higher if debt becomes infinity
 let inflationMR = 1.072; //housing inflation rate when rent doubles every 10 years
 let debt = 0;
 
@@ -58,7 +59,7 @@ class Tenant {
     this.paidBackYear = null;
 
     for (let thisYear = moveInYear; thisYear <= moveOutYear; thisYear++) {
-      thisYearRent = initialRent * (inflation**moveInYear) * 12;
+      thisYearRent = initialRent * (inflationDELT**moveInYear) * 12;
       let thisYearRentMR = initialRent * (inflationMR**moveInYear) * 12;
       totalRent += thisYearRent;      // append this year's rent
       totalRentMR += thisYearRentMR; // to the tenant's rent total
@@ -128,10 +129,11 @@ function simulate(tenants) {
 
 // NARRATIVE FOR USE CASES
 
-
-// someone moves in a year before the mortgage is paid off.
-// someone moves the day the mortgage is paid off.
-// someone moves in after the mortage is paid off
-// someone moves in after P generation is paid off
-// someone moves in after F0 generation is paid off
-// someone moves in after F(n) generation is paid off
+// BEFORE MORTGAGE PAID OFF
+// for each year, if a tenant in tenants moved in after Year,
+// add their "owed" for that year to debt. formula: (initialRent * (inflation**moveInYear) * 12)
+// every year, adjust debt for inflation.
+// 
+// AFTER MORTGAGE PAID OFF
+//
+// for each year, rent goes *down* a little bit, reaching a minimum of... inflation-adjusted rent?
