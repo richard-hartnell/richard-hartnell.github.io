@@ -9,20 +9,25 @@
 }
 
 html {
-  width: 100vw;
+  /* width: 100%; */
   margin: 0;
   padding: 0;
 }
 
 body {
-  width: 100vw;
+  /* width: 100%; */
   margin: 0;
   padding: 0;
   background-color: black;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: url("/images/tents-bg.webp");
+  background-size: cover;
+  background-position: center top;
 }
 
 main {
-width: 100vw;
+/* width: 100%; */
 margin: 0;
 padding: 0;
 }
@@ -37,14 +42,6 @@ h2 {
 
 h5 {
   text-transform: uppercase;
-}
-
-body {
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-image: url("/images/tents-bg.webp");
-  background-size: cover;
-  background-position: center top;
 }
 
 #header {
@@ -136,8 +133,8 @@ main {
 }
 
 #websites-slides figcaption {
-  min-width: 500px;
-  min-height: 375px;
+  min-width: 400px;
+  min-height: 300px;
   box-shadow: 0px 0px 4px 4px #666;
   background-size: cover;
   display: flex;
@@ -188,13 +185,15 @@ main {
   background: linear-gradient(315deg, #42378f 0%, #f53844 74%);
   /* display: flex; */
   padding: 2.5em 0;
+  /* max-width: 100%; */
+  /* display: none; */
   /* margin-bottom: 0; */
 }
 
 #whyme-head {
   text-align: center;
   color: seashell;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
@@ -230,7 +229,9 @@ main {
 }
 
 #clients {
-  padding-top: 5%;
+  position: relative;
+  /* padding-top: 5%; */
+  right: 5%;
   font-family: 'Firs Neue Roman', 'Arial Narrow Bold', sans-serif;
   font-size: 1.15em;
   color: gold;
@@ -238,7 +239,7 @@ main {
   text-transform: uppercase;
   text-align: right;
   translate: 15% 0;
-  min-width: 30%;
+  width: 30%;
 }
 
 /* SLIDER ZONE */
@@ -404,7 +405,7 @@ main {
 
 span {
   background-color: rgba(0, 0, 0, 0.75);
-  width: 100%;
+  /* width: 100%; */
   font-size: 1.1em;
 }
 
