@@ -27,9 +27,12 @@ body {
 }
 
 main {
-/* width: 100%; */
-margin: 0;
-padding: 0;
+  z-index: 1;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 700px;
 }
 
 h1 {
@@ -80,11 +83,6 @@ h5 {
 #header h5 {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1em;
-}
-
-main {
-  z-index: 1;
-  position: relative;
 }
 
 #lowermain {
@@ -240,6 +238,7 @@ main {
   text-align: right;
   translate: 15% 0;
   width: 30%;
+  min-width: 221px;
 }
 
 /* SLIDER ZONE */
@@ -271,11 +270,13 @@ main {
   border-image-slice: 1;
   border-width: 5px;
   border-image-source: linear-gradient(to left, #FF9800, #182860);
+  min-width: 300px;
+  max-width: 250px;
 }
 
 .slideshow-container .mySlides {
   height: 400px;
-  width: 300px;
+  min-width: 200px;
   padding: 10px 10px;
   /* margin-top: 15%; */
 }
@@ -284,7 +285,7 @@ main {
   text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   text-align: center;
   color: #FFFFFF;
-  font-size: 24px;
+  font-size: 19.5px;
   padding: 0px 4px;
   min-width: 4ch;
 }
