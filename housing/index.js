@@ -32,37 +32,49 @@ let initialRent = houseValue * 1.7 / 12 / mortgageLength * 2; // 1.7 is a rough 
 let housemates = 5; // replace this with housemateOutput
 let marketRentDoubleRate = 10; //from market data
 let inflation = 1.03; //Federal Reserve goal rate for inflation is 2%. Let's add +1% to be generous.
-let inflationDELT = 1.04; //Independent var; adjust a little higher if debt becomes infinity
+let inflationDELT = 1.05; //Independent var; adjust a little higher if debt becomes infinity
 let inflationMR = 1.072; //housing inflation rate when rent doubles every 10 years
 let debt = 0;
-
 const tenants = [];
-finalYear = 200;
+const rentIndexDELT = {};
+const rentIndexMR = {};
+
+//independent var
+let finalYear = 200;
+let dissolvingFactor = 20;
+
+for (let i = 1; i <= finalYear; i++) {
+  if (i <= mortgageLength) {
+    rentIndexDELT[i] = initialRent * (inflationDELT**i) * 12;
+  } else if (i <= (mortgageLength + dissolvingFactor)) {
+    inflationDELTadjusted = inflationDELT - ((inflationDELT-inflation) / (dissolvingFactor * (i - mortgageLength))) // also check this.
+    rentIndexDELT[i] = initialRent * inflationDELTadjusted * 12; //is this right? double-check this when you're back to power
+  } else {
+    rentIndexDELT[i] = initialRent * (inflation**i) * 12;
+  }
+  rentIndexMR[i] = initialRent * (inflationMR**i) * 12;
+}
 
 class Tenant {
   constructor(moveInYear, moveOutYear) {
-    let totalRent = 0;
-    let totalRentMR = 0;
-    let earned = 0;
-    let thisYearRent = 0;
-    let owed = 0;
-
+    this.totalRent = 0;
+    this.totalRentMR = 0;
+    this.earned = 0;
+    this.owed = 0;
     this.moveInYear = moveInYear;
     this.moveOutYear = moveOutYear;
-
-    // This probably needs fixing.
     this.paid = totalRent;
     this.earned = earned;
-    //
     this.saved = totalRentMR - totalRent;
     this.lengthOfStay = moveOutYear - moveInYear;
     this.paidBackYear = null;
 
     for (let thisYear = moveInYear; thisYear <= moveOutYear; thisYear++) {
-      thisYearRent = initialRent * (inflationDELT**moveInYear) * 12;
-      let thisYearRentMR = initialRent * (inflationMR**moveInYear) * 12;
-      totalRent += thisYearRent;      // append this year's rent
-      totalRentMR += thisYearRentMR; // to the tenant's rent total
+      this.totalRent += rentIndexDELT[moveInYear];      // append this year's rent
+      this.totalRentMR += rentIndexMR[moveInYear];      // to the tenant's rent total
+
+      //THIS is the problem.
+      //maybe we need a new var relative to debt?
       if (thisYear <= mortgageLength) {
         owed += thisYearRent / 2; // we estimate half of market-rate rent goes toward equity, so this is what goes into the tenant loan
       };
@@ -123,7 +135,6 @@ function simulate(tenants) {
 // and so, totalOwed would be something like (tenant.owed * housemates)
 // it would go up by {inflation} per year
 // and go down by {thisYearRent / 2} per year.
-
 
 // What is more to do?
 
