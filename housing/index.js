@@ -39,18 +39,20 @@ const tenants = [];
 const rentIndexDELT = {};
 const rentIndexMR = {};
 
-//independent var
+//independent vars
 let finalYear = 200;
-let dissolvingFactor = 20;
+let dissolveLength = 20;
 
 for (let i = 1; i <= finalYear; i++) {
   if (i <= mortgageLength) {
     rentIndexDELT[i] = initialRent * (inflationDELT**i) * 12;
-  } else if (i <= (mortgageLength + dissolvingFactor)) {
-    inflationDELTadjusted = inflationDELT - ((inflationDELT-inflation) / (dissolvingFactor * (i - mortgageLength))) // also check this.
-    rentIndexDELT[i] = initialRent * inflationDELTadjusted * 12; //is this right? double-check this when you're back to power
+  } else if (i <= (mortgageLength + dissolveLength)) {
+    let inflationDiff = inflationDELT - inflation;
+    let dI = inflationDiff / dissolveLength;
+    inflationDELTadjusted = inflationDELT - (dI * (i - mortgageLength))
+    rentIndexDELT[i] = rentIndexDELT[i-1] * inflationDELTadjusted * 12;
   } else {
-    rentIndexDELT[i] = initialRent * (inflation**i) * 12;
+    rentIndexDELT[i] = rentIndexDELT[i-1] * inflation * 12;
   }
   rentIndexMR[i] = initialRent * (inflationMR**i) * 12;
 }
@@ -70,8 +72,8 @@ class Tenant {
     this.paidBackYear = null;
 
     for (let thisYear = moveInYear; thisYear <= moveOutYear; thisYear++) {
-      this.totalRent += rentIndexDELT[moveInYear];      // append this year's rent
-      this.totalRentMR += rentIndexMR[moveInYear];      // to the tenant's rent total
+      this.totalRent += rentIndexDELT[moveInYear];
+      this.totalRentMR += rentIndexMR[moveInYear];
 
       //THIS is the problem.
       //maybe we need a new var relative to debt?
