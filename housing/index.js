@@ -26,10 +26,12 @@ housemateSlider.oninput = function() {
 };
 
 //house values
-let mortgageLength = 15; // mortgage length in years
+let mortgageLength = 20; // mortgage length in years
 let houseValue = 500000 // replace this with houseValueOutput
-let initialRent = houseValue * 1.7 / 12 / mortgageLength * 2; // 1.7 is a rough factor from mortage rates. the *2 represents the rest of COL
 let housemates = 5; // replace this with housemateOutput
+let priceAfterInterest = houseValue * 1.7;
+let COLFactor = 2;
+let initialRent = priceAfterInterest * COLFactor / mortgageLength / 12 / housemates; // 1.7 is a rough factor from mortage rates. the *2 represents the rest of COL
 let marketRentDoubleRate = 10; //from market data
 let inflation = 1.03; //Federal Reserve goal rate for inflation is 2%. Let's add +1% to be generous.
 let inflationDELT = 1.05; //Independent var; adjust a little higher if debt becomes infinity
@@ -41,61 +43,69 @@ const rentIndexMR = {};
 
 //independent vars
 let finalYear = 200;
-let dissolveLength = 20;
+let dissolveLength = 100;
 
 for (let i = 1; i <= finalYear; i++) {
   if (i <= mortgageLength) {
-    rentIndexDELT[i] = initialRent * (inflationDELT**i) * 12;
-  } else if (i <= (mortgageLength + dissolveLength)) {
-    let inflationDiff = inflationDELT - inflation;
+    rentIndexDELT[i] = initialRent * (inflationDELT**i);
+  } else if ((i > mortgageLength) || (i <= mortgageLength + dissolveLength))  {
+    let inflationDiff = inflation - inflationDELT;
     let dI = inflationDiff / dissolveLength;
     inflationDELTadjusted = inflationDELT - (dI * (i - mortgageLength))
-    rentIndexDELT[i] = rentIndexDELT[i-1] * inflationDELTadjusted * 12;
+    rentIndexDELT[i] = rentIndexDELT[i-1] * inflationDELTadjusted;
   } else {
-    rentIndexDELT[i] = rentIndexDELT[i-1] * inflation * 12;
+    rentIndexDELT[i] = rentIndexDELT[i-1] * inflation;
   }
-  rentIndexMR[i] = initialRent * (inflationMR**i) * 12;
+  rentIndexMR[i] = initialRent * (inflationMR**i);
 }
+
+console.log(rentIndexDELT);
+
 
 class Tenant {
   constructor(moveInYear, moveOutYear) {
     this.totalRent = 0;
     this.totalRentMR = 0;
     this.earned = 0;
-    this.owed = 0;
+    let owed = 0;
     this.moveInYear = moveInYear;
     this.moveOutYear = moveOutYear;
-    this.paid = totalRent;
-    this.earned = earned;
-    this.saved = totalRentMR - totalRent;
+    // this.paid = totalRent;
+    // this.earned = earned;
+    // this.saved = totalRentMR - totalRent;
     this.lengthOfStay = moveOutYear - moveInYear;
     this.paidBackYear = null;
 
     for (let thisYear = moveInYear; thisYear <= moveOutYear; thisYear++) {
-      this.totalRent += rentIndexDELT[moveInYear];
-      this.totalRentMR += rentIndexMR[moveInYear];
+      this.totalRent += rentIndexDELT[moveInYear] / housemates;
+      this.totalRentMR += rentIndexMR[moveInYear] / housemates;
 
-      //THIS is the problem.
-      //maybe we need a new var relative to debt?
       if (thisYear <= mortgageLength) {
-        owed += thisYearRent / 2; // we estimate half of market-rate rent goes toward equity, so this is what goes into the tenant loan
+        owed += rentIndexDELT[thisYear] / 2; // mortgage as 1/2 of 'market rate'
       };
-      owed = owed * inflation; // it's a CPI-chained loan.
+      owed = owed * inflation;
       if (thisYear > mortgageLength) {
         if (owed > 0) {
-          owed -= (thisYearRent * 6 / housemates);
+          owed -= (rentIndexDELT[thisYear] * 6 / housemates);
           if (owed <= 0) {
             this.paidBackYear = thisYear;
           }
         }
       }
     }
+    
+    this.owed = owed;
+
+
 
   }
-  getOutcome() {
-    console.log(`This tenant moved in during year ${this.moveInYear} and out in ${this.moveOutYear}.
-                  They paid off $${this.paid} of the mortgage and received $${this.earned} paid back by year ${this.paidBackYear}.
 
+
+  
+  getOutcome() {
+    console.log(`This tenant moved in during year ${this.moveInYear} and out in year ${this.moveOutYear}.
+                  They paid off $${this.totalRent} of the mortgage and received $${this.earned} paid back by year ${this.paidBackYear}.
+                  
                   `);
   }
 
