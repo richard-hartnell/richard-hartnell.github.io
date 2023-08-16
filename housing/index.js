@@ -59,9 +59,6 @@ for (let i = 1; i <= finalYear; i++) {
   rentIndexMR[i] = initialRent * (inflationMR**i);
 }
 
-console.log(rentIndexDELT);
-
-
 class Tenant {
   constructor(moveInYear, moveOutYear) {
     this.totalRent = 0;
@@ -80,6 +77,8 @@ class Tenant {
       this.totalRent += rentIndexDELT[moveInYear] / housemates;
       this.totalRentMR += rentIndexMR[moveInYear] / housemates;
 
+
+      //QUESTION: if moveOutYear < mortgageLength, then what?
       if (thisYear <= mortgageLength) {
         owed += rentIndexDELT[thisYear] / 2; // mortgage as 1/2 of 'market rate'
       };
@@ -87,6 +86,7 @@ class Tenant {
       if (thisYear > mortgageLength) {
         if (owed > 0) {
           owed -= (rentIndexDELT[thisYear] * 6 / housemates);
+          this.earned += (rentIndexDELT[thisYear] * 6 / housemates);
           if (owed <= 0) {
             this.paidBackYear = thisYear;
           }
