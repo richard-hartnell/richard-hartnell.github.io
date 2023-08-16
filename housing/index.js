@@ -71,21 +71,22 @@ class Tenant {
     // this.earned = earned;
     // this.saved = totalRentMR - totalRent;
     this.lengthOfStay = moveOutYear - moveInYear;
-    this.paidBackYear = null;
+    this.paidBackYear = 9999;
 
-    for (let thisYear = moveInYear; thisYear <= moveOutYear; thisYear++) {
-      this.totalRent += rentIndexDELT[moveInYear] / housemates;
-      this.totalRentMR += rentIndexMR[moveInYear] / housemates;
+    for (let thisYear = moveInYear; thisYear <= finalYear; thisYear++) {
+      if (thisYear < moveOutYear) {
+        this.totalRent += rentIndexDELT[moveInYear] / housemates;
+        this.totalRentMR += rentIndexMR[moveInYear] / housemates;
+      }
 
-
-      //QUESTION: if moveOutYear < mortgageLength, then what?
+      //TODO: how to handle fakeMortgage?
       if (thisYear <= mortgageLength) {
         owed += rentIndexDELT[thisYear] / 2; // mortgage as 1/2 of 'market rate'
       };
       owed = owed * inflation;
       if (thisYear > mortgageLength) {
         if (owed > 0) {
-          owed -= (rentIndexDELT[thisYear] * 6 / housemates);
+          owed -= owed;
           this.earned += (rentIndexDELT[thisYear] * 6 / housemates);
           if (owed <= 0) {
             this.paidBackYear = thisYear;
