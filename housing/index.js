@@ -27,18 +27,18 @@ housemateSlider.oninput = function() {
 
 //house values
 let mortgageLength = 20; // mortgage length in years
-let houseValue = 500000 // replace this with houseValueOutput
+let houseValue = 400000 // replace this with houseValueOutput
 let housemates = 5; // replace this with housemateOutput
 let priceAfterInterest = houseValue * 1.7;
 let COLFactor = 2;
-let initialRent = priceAfterInterest * COLFactor / mortgageLength / 12 / housemates; // 1.7 is a rough factor from mortage rates. the *2 represents the rest of COL
+let firstMonthRent = Math.floor(priceAfterInterest * COLFactor / (mortgageLength * 12) / housemates); // 1.7 is a rough factor from mortage rates. the *2 represents the rest of COL
 let marketRentDoubleRate = 10; //from market data
 let inflation = 1.03; //Federal Reserve goal rate for inflation is 2%. Let's add +1% to be generous.
 let inflationDELT = 1.05; //Independent var; adjust a little higher if debt becomes infinity
 let inflationMR = 1.072; //housing inflation rate when rent doubles every 10 years
 let debt = 0;
 const tenants = [];
-const rentIndexDELT = {};
+const rentIndexDELT = {0: (firstMonthRent * 12),};
 const rentIndexMR = {};
 
 //independent vars
@@ -47,16 +47,16 @@ let dissolveLength = 100;
 
 for (let i = 1; i <= finalYear; i++) {
   if (i <= mortgageLength) {
-    rentIndexDELT[i] = initialRent * (inflationDELT**i);
+    rentIndexDELT[i] = Math.floor(rentIndexDELT[i-1] * inflationDELT);
   } else if ((i > mortgageLength) || (i <= mortgageLength + dissolveLength))  {
     let inflationDiff = inflation - inflationDELT;
     let dI = inflationDiff / dissolveLength;
     inflationDELTadjusted = inflationDELT - (dI * (i - mortgageLength))
-    rentIndexDELT[i] = rentIndexDELT[i-1] * inflationDELTadjusted;
+    rentIndexDELT[i] = Math.floor(rentIndexDELT[i-1] * inflationDELTadjusted);
   } else {
-    rentIndexDELT[i] = rentIndexDELT[i-1] * inflation;
+    rentIndexDELT[i] = Math.floor(rentIndexDELT[i-1] * inflation);
   }
-  rentIndexMR[i] = initialRent * (inflationMR**i);
+  rentIndexMR[i] = Math.floor(firstMonthRent * (inflationMR**i));
 }
 
 class Tenant {
@@ -64,45 +64,39 @@ class Tenant {
     this.totalRent = 0;
     this.totalRentMR = 0;
     this.earned = 0;
-    let owed = 0;
+    this.owed = 0;
     this.moveInYear = moveInYear;
     this.moveOutYear = moveOutYear;
+    this.mortgagePaid = 0;
     // this.paid = totalRent;
     // this.earned = earned;
     // this.saved = totalRentMR - totalRent;
+  
     this.lengthOfStay = moveOutYear - moveInYear;
-    this.paidBackYear = 9999;
+    this.paidBackYear = null;
 
     for (let thisYear = moveInYear; thisYear <= finalYear; thisYear++) {
-      if (thisYear < moveOutYear) {
-        this.totalRent += rentIndexDELT[moveInYear] / housemates;
-        this.totalRentMR += rentIndexMR[moveInYear] / housemates;
-      }
-
-      //TODO: how to handle fakeMortgage?
+      this.totalRent += rentIndexDELT[moveInYear] / housemates;
+      this.totalRentMR += rentIndexMR[moveInYear] / housemates;
+      this.owed *= inflation;
       if (thisYear <= mortgageLength) {
-        owed += rentIndexDELT[thisYear] / 2; // mortgage as 1/2 of 'market rate'
+        this.owed += rentIndexDELT[thisYear] / 2; // mortgage as 1/2 of 'market rate'
+        this.mortgagePaid += rentIndexDELT[thisYear] / 2;
       };
-      owed = owed * inflation;
       if (thisYear > mortgageLength) {
-        if (owed > 0) {
-          owed -= owed;
-          this.earned += (rentIndexDELT[thisYear] * 6 / housemates);
-          if (owed <= 0) {
+        if (this.owed > 0) {
+          this.owed -= (rentIndexDELT[thisYear] * 6 / housemates);
+          if (this.owed <= 0) {
             this.paidBackYear = thisYear;
           }
         }
       }
     }
-    
-    this.owed = owed;
 
 
 
   }
 
-
-  
   getOutcome() {
     console.log(`This tenant moved in during year ${this.moveInYear} and out in year ${this.moveOutYear}.
                   They paid off $${this.totalRent} of the mortgage and received $${this.earned} paid back by year ${this.paidBackYear}.
@@ -113,10 +107,10 @@ class Tenant {
 }
 
 // archetypes then.
-const tenant0 = new Tenant(0, (mortgageLength / 2));
-const tenant1 = new Tenant(0, mortgageLength);
-const tenant2 = new Tenant(0, mortgageLength + 10);
-const tenant3 = new Tenant(0, mortgageLength * 2);
+const tenant0 = new Tenant(1, (mortgageLength / 2));
+const tenant1 = new Tenant(1, mortgageLength);
+const tenant2 = new Tenant(1, mortgageLength + 10);
+const tenant3 = new Tenant(1, mortgageLength * 2);
 const tenant4 = new Tenant(mortgageLength / 2, mortgageLength * 0.75);
 const tenant5 = new Tenant(mortgageLength / 2, mortgageLength);
 const tenant6 = new Tenant(mortgageLength / 2, mortgageLength + 10);
@@ -140,24 +134,3 @@ function simulate(tenants) {
   console.log("Market-rate rent at end of timeline: ");
 
 }
-
-// the house starts paying people back to the tune of 1/2 thisYearRent every year.
-// and then it pays back
-// this has gotten complicated.
-// the house can deal with old housemates as a lump.
-// and so, totalOwed would be something like (tenant.owed * housemates)
-// it would go up by {inflation} per year
-// and go down by {thisYearRent / 2} per year.
-
-// What is more to do?
-
-// NARRATIVE FOR USE CASES
-
-// BEFORE MORTGAGE PAID OFF
-// for each year, if a tenant in tenants moved in after Year,
-// add their "owed" for that year to debt. formula: (initialRent * (inflation**moveInYear) * 12)
-// every year, adjust debt for inflation.
-// 
-// AFTER MORTGAGE PAID OFF
-//
-// for each year, rent goes *down* a little bit, reaching a minimum of... inflation-adjusted rent?
