@@ -154,6 +154,26 @@ h5 {
 
 */
 
+#stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  flex-basis: auto;
+  background-color: transparent;
+  font-size: 0.75em;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.stack-fig img {
+  background-color: white;
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  border-radius: 20px;
+  border: 0px;
+  padding: 5px;
+}
+
 #admiralty {
   background-image: url('./images/websites/admiralty.webp');
   background-position: center;
@@ -404,7 +424,7 @@ h5 {
   transition: all 0.5s ease-in-out;
 }
 
-span {
+figcaption span {
   background-color: rgba(0, 0, 0, 0.75);
   /* width: 100%; */
   font-size: 1.1em;
