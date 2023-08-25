@@ -65,8 +65,6 @@ class Tenant {
     this.totalRentMR = 0;
     this.earned = 0;
     this.owed = 0;
-    this.moveInYear = moveInYear;
-    this.moveOutYear = moveOutYear;
     this.mortgagePaid = 0;
     // this.paid = totalRent;
     // this.earned = earned;
