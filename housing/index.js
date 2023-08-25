@@ -43,7 +43,7 @@ const rentIndexMR = {};
 
 //independent vars
 let finalYear = 200;
-let dissolveLength = 100;
+let dissolveLength = 50;
 
 for (let i = 1; i <= finalYear; i++) {
   if (i <= mortgageLength) {
@@ -66,6 +66,8 @@ class Tenant {
     this.earned = 0;
     this.owed = 0;
     this.mortgagePaid = 0;
+    this.moveInYear = moveInYear;
+    this.moveOutYear = moveOutYear;
     // this.paid = totalRent;
     // this.earned = earned;
     // this.saved = totalRentMR - totalRent;
@@ -81,6 +83,9 @@ class Tenant {
         this.owed += rentIndexDELT[thisYear] / 2; // mortgage as 1/2 of 'market rate'
         this.mortgagePaid += rentIndexDELT[thisYear] / 2;
       };
+
+      //TODO: here is the problem: we can't pay everyone back completely.
+      //but we can make up for that with a differential between MR and DELT rent.
       if (thisYear > mortgageLength) {
         if (this.owed > 0) {
           this.owed -= (rentIndexDELT[thisYear] * 6 / housemates);
@@ -97,7 +102,7 @@ class Tenant {
 
   getOutcome() {
     console.log(`This tenant moved in during year ${this.moveInYear} and out in year ${this.moveOutYear}.
-                  They paid off $${this.totalRent} of the mortgage and received $${this.earned} paid back by year ${this.paidBackYear}.
+                  They paid off $${this.mortgagePaid} of the mortgage and received $${this.earned} paid back by year ${this.paidBackYear}.
                   
                   `);
   }
@@ -116,11 +121,21 @@ const tenant7 = new Tenant(mortgageLength / 2, mortgageLength * 2);
 const tenant8 = new Tenant(mortgageLength, mortgageLength + 10);
 const tenant9 = new Tenant(mortgageLength, mortgageLength * 2);
 const tenantA = new Tenant(mortgageLength * 2, mortgageLength * 3);
-const TenantB = new Tenant(mortgageLength * 3, mortgageLength * 4);
+const tenantB = new Tenant(mortgageLength * 3, mortgageLength * 4);
 
 function simulate(tenants) {
   for (let i = 1; i < finalYear; i++) {
-    console.log(`Year {i}`);
+    console.log(`Year ${i}`);
+    console.log(`DELT Rent: ${rentIndexDELT[i]}`)
+    console.log(`Market-rate rent: ${rentIndexMR[i]}`)
+    debt *= inflation;
+    if (i <= mortgageLength) {
+      debt += rentIndexDELT[i] / 2;
+    }
+    if (i > mortgageLength) {
+      debt += rentIndexDELT 
+    }
+    
     for (let tenant of tenants) {
       // do stuff here
       
