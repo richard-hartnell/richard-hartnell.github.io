@@ -124,23 +124,35 @@ const tenantA = new Tenant(mortgageLength * 2, mortgageLength * 3);
 const tenantB = new Tenant(mortgageLength * 3, mortgageLength * 4);
 
 function simulate(tenants) {
+  arbitraryDissolveFactor = 0.02;
   for (let i = 1; i < finalYear; i++) {
-    console.log(`Year ${i}`);
+    console.log(`Year ${i}`)
     console.log(`DELT Rent: ${rentIndexDELT[i]}`)
     console.log(`Market-rate rent: ${rentIndexMR[i]}`)
     debt *= inflation;
     if (i <= mortgageLength) {
       debt += rentIndexDELT[i] / 2;
     }
+
+    j = arbitraryDissolveFactor;
     if (i > mortgageLength) {
-      debt += rentIndexDELT 
+      // TODO: is this right?      
+      debt += (rentIndexDELT[i] / 2) - [1 * j];
+      if (j > 1) {
+        j = 1;
+      }
+      if (j < 1) {
+        j += arbitraryDissolveFactor;
+      
+
     }
     
-    for (let tenant of tenants) {
-      // do stuff here
+    // tenant for-loop is removed here to decouple 'debt' from 'owed'
+
       
-    }
-  }
+    
+
+  
   console.log("Remaining money owed on mortgage: ");
   console.log("Remaining money owed past tenants: ");
   console.log("Rent at end of timeline: ");
