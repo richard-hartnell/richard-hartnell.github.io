@@ -136,16 +136,17 @@ function simulate(tenants) {
 
     j = arbitraryDissolveFactor;
     if (i > mortgageLength) {
-      // TODO: is this right?      
+      // TODO: is this right?
       debt += (rentIndexDELT[i] / 2) - [1 * j];
       if (j > 1) {
         j = 1;
       }
       if (j < 1) {
         j += arbitraryDissolveFactor;
-      
-
+      }
     }
+  }
+}
     
     // tenant for-loop is removed here to decouple 'debt' from 'owed'
 
