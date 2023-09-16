@@ -1,3 +1,5 @@
+import Home from './Home.js'
+
 // define houseValue slider and output
 const houseValueSlider = document.getElementById("houseValueSlider");
 let houseValueOutput = document.getElementById("houseValueOutput");
@@ -8,8 +10,8 @@ let housemateOutput = document.getElementById("housemateOutput");
 housemateOutput.innerHTML = housemateSlider.value; // Display the default slider value
 
 let captions = [];
-housemateCaption = "<br>If you're lucky, you're considering buying a large plot of land with a lot of friends and/or family.<br><br>If you're less lucky, you're simulating a place like Santa Cruz County, where more than a quarter of people live 2+ per room."
-houseValueCaption = "This model isn't built for luxury housing yet. <br> But it ought to be able to simulate larger purchases for larger families and/or communities."
+let housemateCaption = "<br>If you're lucky, you're considering buying a large plot of land with a lot of friends and/or family.<br><br>If you're less lucky, you're simulating a place like Santa Cruz County, where more than a quarter of people live 2+ per room."
+let houseValueCaption = "This model isn't built for luxury housing yet. <br> But it ought to be able to simulate larger purchases for larger families and/or communities."
 
 //funcs to update caption on input
 houseValueSlider.oninput = function() {
@@ -25,21 +27,21 @@ housemateSlider.oninput = function() {
   };
 };
 
-//house values
-let mortgageLength = 20; // mortgage length in years
-let houseValue = 400000 // replace this with houseValueOutput
-let housemates = 5; // replace this with housemateOutput
-let priceAfterInterest = houseValue * 1.7;
-let COLFactor = 2;
-let firstMonthRent = Math.floor(priceAfterInterest * COLFactor / (mortgageLength * 12) / housemates); // 1.7 is a rough factor from mortage rates. the *2 represents the rest of COL
-let marketRentDoubleRate = 10; //from market data
-let inflation = 1.03; //Federal Reserve goal rate for inflation is 2%. Let's add +1% to be generous.
-let inflationDELT = 1.05; //Independent var; adjust a little higher if debt becomes infinity
-let inflationMR = 1.072; //housing inflation rate when rent doubles every 10 years
-let debt = 0;
-const tenants = [];
-const rentIndexDELT = {0: (firstMonthRent * 12),};
-const rentIndexMR = {};
+// //house values
+// let mortgageLength = 20; // mortgage length in years
+// let houseValue = 400000 // replace this with houseValueOutput
+// let housemates = 5; // replace this with housemateOutput
+// let priceAfterInterest = houseValue * 1.7;
+// let COLFactor = 2;
+// let firstMonthRent = Math.floor(priceAfterInterest * COLFactor / (mortgageLength * 12) / housemates); // 1.7 is a rough factor from mortage rates. the *2 represents the rest of COL
+// let marketRentDoubleRate = 10; //from market data
+// let inflation = 1.03; //Federal Reserve goal rate for inflation is 2%. Let's add +1% to be generous.
+// let inflationDELT = 1.05; //Independent var; adjust a little higher if debt becomes infinity
+// let inflationMR = 1.072; //housing inflation rate when rent doubles every 10 years
+// let debt = 0;
+// const tenants = [];
+// const rentIndexDELT = {0: (firstMonthRent * 12),};
+// const rentIndexMR = {};
 
 //independent vars
 let finalYear = 200;
@@ -51,7 +53,7 @@ for (let i = 1; i <= finalYear; i++) {
   } else if ((i > mortgageLength) || (i <= mortgageLength + dissolveLength))  {
     let inflationDiff = inflation - inflationDELT;
     let dI = inflationDiff / dissolveLength;
-    inflationDELTadjusted = inflationDELT - (dI * (i - mortgageLength))
+    let inflationDELTadjusted = inflationDELT - (dI * (i - mortgageLength))
     rentIndexDELT[i] = Math.floor(rentIndexDELT[i-1] * inflationDELTadjusted);
   } else {
     rentIndexDELT[i] = Math.floor(rentIndexDELT[i-1] * inflation);
@@ -158,5 +160,3 @@ function simulate(tenants) {
   console.log("Remaining money owed past tenants: ");
   console.log("Rent at end of timeline: ");
   console.log("Market-rate rent at end of timeline: ");
-
-}
