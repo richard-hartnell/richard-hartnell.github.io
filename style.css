@@ -128,6 +128,8 @@ h5 {
   flex-wrap: wrap-reverse;
   justify-content: space-around;
   gap: 10%;
+  margin: 0 auto;
+  max-width: 2000px;
 }
 
 #websites-slides figcaption {
@@ -160,6 +162,8 @@ h5 {
   justify-content: space-evenly;
   flex-basis: auto;
   background-color: transparent;
+  max-width: 1000px;
+  margin: 0 auto;
   font-size: 0.75em;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -183,6 +187,12 @@ h5 {
   background-image: url('./images/websites/bcg.webp');
   background-position: center;
 }
+
+#djv {
+  background-image: url('./images/websites/djv.webp');
+  background-position: center;
+}
+
 
 #rifleflow {
   background-image: url('./images/websites/rifleflow.webp');
@@ -260,8 +270,6 @@ h5 {
   width: 30%;
   min-width: 221px;
 }
-
-/* SLIDER ZONE */
 
 #slide-centerer img {
   position: absolute;
@@ -385,15 +393,12 @@ h5 {
   background-color: #717171;
 }
 
-/* Fading animation */
 .fade {
   -webkit-animation-name: fade;
           animation-name: fade;
   -webkit-animation-duration: 1.5s;
           animation-duration: 1.5s;
 }
-
-/* MISC STUFF THAT WORKS */
 
 #portfolio {
   color: seashell;
@@ -483,18 +488,6 @@ figcaption h4 {
 #circusguild {
   background-image: url('./images/BCG.webp');
   background-position: center;
-}
-
-#polaquote {
-  /* font-size: initial; */
-}
-
-#casandraquote {
-  /* font-size: initial; */
-}
-
-#michaelquote {
-  /* font-size: initial; */
 }
 
 #evio {
