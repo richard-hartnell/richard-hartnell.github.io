@@ -209,6 +209,11 @@ h5 {
   background-position: center;
 }
 
+#flowfests {
+  background-image: url('./images/websites/flowfests.webp');
+  background-position: center;
+}
+
 #whyme {
   background: linear-gradient(315deg, #42378f 0%, #f53844 74%);
   /* display: flex; */
@@ -579,6 +584,13 @@ figcaption h4 {
 @media only screen and (max-width: 300px) {
   .prev, .next, .text {
     font-size: 11px;
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  #whyme-sectioned {
+    max-width: 50%;
+    margin: 0 auto;
   }
 }
 
