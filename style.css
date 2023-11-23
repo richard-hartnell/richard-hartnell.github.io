@@ -97,6 +97,7 @@ h5 {
   background-color: black;
   color: seashell;
   text-align: center;
+  /* font-size: 2em; */
   padding-top: 1.25em;
 }
 
@@ -592,6 +593,11 @@ figcaption h4 {
     max-width: 50%;
     margin: 0 auto;
   }
+
+
+
+
+
 }
 
 @media only screen and (orientation: portrait) {
