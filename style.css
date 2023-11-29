@@ -418,12 +418,12 @@ h5 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 10%;
+  gap: 5%;
 }
 
 #portfolio-slides figcaption {
-  width: 300px;
-  height: 225px;
+  width: 20em;
+  min-height: 10em;
   box-shadow: 0px 0px 10px 10px white;
   background-size: cover;
   display: flex;
@@ -438,7 +438,7 @@ h5 {
 figcaption span {
   background-color: rgba(0, 0, 0, 0.75);
   /* width: 100%; */
-  font-size: 1.1em;
+  font-size: 1.5em;
 }
 
 figcaption h3 {
