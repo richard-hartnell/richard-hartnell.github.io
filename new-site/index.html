@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Richard Hartnell</title>
+    <link rel="stylesheet" href="./style.css">
+    <meta property="og:site_name" content="Richard Hartnell"/>
+    <meta property="og:title" content="Richard Hartnell"/>
+    <meta property="og:url" content="https://www.richardhartnell.com"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="/anchor-logo.webp"/>
+    <meta property="og:image:width" content="1500"/>
+    <meta property="og:image:height" content="410"/>
+    <meta itemprop="name" content="Richard Hartnell"/>
+    <meta itemprop="url" content="https://www.richardhartnell.com.com"/>
+    <meta itemprop="thumbnailUrl" content="./anchor-logo.webp"/>
+    <link rel="image_src" href="/anchor-logo.webp" />
+    <link rel="shortcut icon" href="/rudder-bullet.png">
+    <meta itemprop="image" content="/anchor-logo.webp"/>
+    <meta name="twitter:title" content="Richard Hartnell"/>
+    <meta name="twitter:image" content="/anchor-logo.webp"/>
+    <meta name="twitter:url" content="https://www.richardhartnell.com"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="description" content="A portfolio site for Richard Hartnell, a professional human based in Bellingham, WA.">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="preload" as="font" href="./MINERVAM.OTF">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> -->
+
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <div id="nav-logo">
+        <a href="/index.html"><img src="/logo-nav.webp" alt="an Admiralty Lounge logo in the navbar"></a>
+      </div>
+      <div id="burger-icon">
+        <!-- <a href="#" onclick="toggleBurger()"> -->
+
+        <img src="./burger-menu.png" height=75 width=75 alt="A small, three-line icon representing a hamburger menu. When clicked, it opens a dropdown menu." onmousedown="toggleBurger()"></a>
+      </div>
+      <div id="menu-links">
+        <a href="/admiralty_menu.pdf" id="menu1" target="_blank">Menu</a>
+        <img src="/rudder-bullet.png" alt="">
+        <a href="#" id="menu2" onclick="showMenu('glimpse'); return false;">Look Inside</a>
+        <img src="/rudder-bullet.png" alt="">
+        <!-- <a href="#" id="menu3" onclick="showMenu('crew'); return false;">Crew</a>
+        <img src="/rudder-bullet.png"> -->
+        <a href="#" id="menu4" onclick="showMenu('music'); return false;">Music</a>
+        <img src="/rudder-bullet.png" alt="">
+        <a href="#" id="menu5" onclick="showMenu('reviews'); return false;">Reviews</a>
+        <img src="/rudder-bullet.png" alt="">
+        <a href="/admiralty_happy_hour.pdf" id="menu6" target="_blank">Happy Hour</a>
+      </div>
+    </nav>
+    <nav id="nav-burger" style="display: none">
+      <div id="nav-burger-inside">
+        <a href="/admiralty_menu.pdf" id="menu1" target="_blank">Menu</a>
+        <br>
+        <img src="/rudder-bullet.png" alt="">
+        <br>
+        <a href="#" id="menu2" onclick="showMenu('glimpse'); return false;">Look Inside</a>
+        <br>
+        <img src="/rudder-bullet.png" alt="">
+        <!-- <a href="#" id="menu3" onclick="showMenu('crew'); return false;">Crew</a>
+        <img src="/rudder-bullet.png"> -->
+        <br>
+        <a href="#" id="menu4" onclick="showMenu('music'); return false;">Music</a>
+        <br>
+        <img src="/rudder-bullet.png" alt="">
+        <br>
+        <a href="#" id="menu5" onclick="showMenu('reviews'); return false;">Reviews</a>
+        <br>
+        <img src="/rudder-bullet.png" alt="">
+        <br>
+        <a href="/admiralty_happy_hour.pdf" id="menu6" target="_blank">Happy Hour</a>
+      </div>
+    </nav>
+
+
+    <main id="flex-container">
+
+      <section id="frontpage">
+        <div id="address-col">
+          <h3 id="address">100 N. Commercial St<br>
+          Bellingham, WA</h3>
+          <a href="https://www.toasttab.com/admiralty-lounge-100-n-commercial-st/v3" id="toasttab-button" data-initialized="true" class="frontpage-button">
+            To-Go & Delivery
+          </a>
+          <a href="https://www.opentable.com/r/the-admiralty-lounge-reservations-bellingham?restref=1282618&lang=en-US&ot_source=Restaurant%20website" id="reservation-button" target="_blank" class="frontpage-button">
+            Reservations
+          </a>
+        </div>
+        <div id="anchor-logo"><img src="/anchor-logo.webp" alt="A golden, hand-illustrated logo of an anchor with a coil of rope around it. The top of the anchor reads 'THE ADMIRALTY.'" />
+        </div>
+        <div id="hours-col">
+          <!-- <h1>Hours</h1> -->
+          <img src="/rudder-bullet.png" style="height: 25px; width: 25px" alt="">
+          <h4>Tuesday 4-10<br>
+          Wednesday 4-10<br>
+          Thursday 4-12<br>
+          Friday 4-12<br>
+          Saturday 4-12<br>
+          Sunday 4-10<br>
+          </h4>      
+          <img src="/rudder-bullet.png" style="height: 25px; width: 25px" alt="">
+          <div id="twentyone">A 21+ establishment.</div>
+        </div>
+      </section>
+
+      <section id="glimpse-wrapper">
+        <figure>
+          <img src="/images/admiralty_front_2.webp" alt="The sunlit front of the Admiralty Lounge, all glass with golden text and overflowing flower planters beneath."/>
+        </figure>
+        <figure>
+          <img src="/images/admiralty_music.webp" alt="A woman plays fiddle and a man plays harmonica in the front of the house."/>
+        </figure>
+        <figure>
+          <img src="/images/admiralty_cocktail.webp" alt="A close-up of a beautiful pink cocktail with a dried lemon slice in it." />
+        </figure>
+        <figure>
+          <img src="/images/admiralty_deviled_eggs.webp" loading="lazy" alt="A close-up of three gorgeous deviled eggs, each bearing a single chive and a daub of red sauce."/>
+        </figure>
+        <figure>
+          <img src="/images/admiralty_longbar.webp" loading="lazy" alt="A packed house full of people chatting and enjoying their fare."/>
+        </figure>
+        <figure>
+          <img src="/images/admiralty_spread_2.webp" loading="lazy" alt="A can of local grisette next to a plate stacked high with fish and chips and fresh slaw."/>
+        </figure>
+        <figure>
+          <img src="/images/admiralty_front_1.webp" loading="lazy" alt="A close-up of the planters outside the front door, spilling over with flowers."/>
+        </figure>
+        <figure>
+          <img src="/images/admiralty_spread_1.webp" loading="lazy" alt="A Citadel martini and a finger of Ardbeg Scotch flanking a caviar appetizer."/>
+        </figure>
+        <figure>
+          <img src="/images/admiralty_icecream.webp" loading="lazy" alt="A top-down closeup of a half-devoured plate of the Admiralty's signature hog jowl ice cream, topped with red compote and some kind of crumble."/>
+        </figure>
+      </section>
+
+      <section id="reviews-wrapper">
+        <div id="daily-review">
+          <a href="https://www.cascadiadaily.com/news/2023/jul/15/review-the-admiralty-lounge/" target="_blank">
+          <img src="/images/reviews/daily.webp" alt="A headline clickable headline linking to the Cascadia Daily's glowing review of Admiralty Lounge."/></a>
+        </div>
+        <br>
+        <figure>
+          <img src="/images/reviews/review_1.webp" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_2.webp" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_4.webp" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_5.webp" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_6.webp" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_7.webp" loading="lazy" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_9.webp" loading="lazy" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_10.webp" loading="lazy" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_11.webp" loading="lazy" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_12.webp" loading="lazy" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_13.webp" loading="lazy" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_15.webp" loading="lazy" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+        <figure>
+          <img src="/images/reviews/review_14.webp" loading="lazy" alt="A glowing five-star review from Google Maps."/>
+        </figure>
+      </section>
+
+      <section id="crew-wrapper">
+        <h1>Our Crew</h1>
+        <div id="crew">
+          <figure id="kat">
+            <img src="/images/admiralty_cocktail.webp"/></a>
+            <figcaption>When Chef Jeremiah Leighton came on board at Admiralty Lounge, he immediately brought his enthusiasm and joy for delicious food with him but his secret weapon is the unconventional approach he brings to putting flavors together. For Chef Jeremiah, there is no rule above the mandate to make our offerings as delicious as possible, and if that leads to unconventional places, all the better! We are so lucky tp have him and hope you'll come try his offerings soon!</figcaption>
+          </figure>
+          <figure id="jeremiah">
+            <img src="/images/admiralty_music.webp"/></a>
+            <figcaption>When we set sail on the journey of The Admiralty, we knew we would need an experienced hand on the rudder who spoke our crazy shorthand and shared a passion for spectacular experiences. As many of you have already learned, Kat is that and much more; a veritable point of intersection on the paths of excellence and sass. Many of the menus favorites are her creation: The Cork Leg, The Wellerman, Dogfish Catfight and more leap from her mind to your glass. If you haven't had a chance to say hello, we'd say there's no time like the present!</figcaption>
+          </figure>
+          <figure id="jabriel">
+            <img src="/images/admiralty_front_2.webp" loading="lazy"/></a>
+            <figcaption>Lorem ipsum something or other. This is a long bio. It's gonna be long and go like this. Then there'll be another sentence like this.</figcaption>
+          </figure>
+          <figure id="???">
+            <img src="/images/admiralty_deviled_eggs.webp" loading="lazy"/></a>
+            <figcaption>Lorem ipsum something or other. This is a long bio. It's gonna be long and go like this. Then there'll be another sentence like this.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="music-wrapper">
+        <h1>MUSIC</h1>
+
+        <figure class="show">
+          <img class="show-pic" src="/images/music/raggedy_adler.webp" alt="Three young, farm-punky people stand in a field next to a barn playing a fiddle, a banjo, and the bones. They look like they play together really well.">
+          <figcaption class="show-info">
+            <section class="music-bio">
+              <h2>Raggedy Adler</h2>
+              <h6>Raggedy Adler is a transient folk, old-time, and punk band composed of queer vagabonds and train hoppers. We perform a variety of original compositions and historical folk tunes through the lens of our experiences living through disenfranchisement and building community. We hope to impart the stories of an oft overlooked underclass using the folk tradition as our medium.</h6>
+            </section>
+            <section class="showtime">
+              <h6>Tuesday, August 13<br>7p - 9p</h6>
+            </section>
+          </figcaption>
+        </figure>
+
+    </main>
+  </body>  
+
+  <script src="three.r134.min.js"></script>
+  <script src="vanta.waves.min.js"></script>
+  <script>
+    VANTA.WAVES({
+      el: "#flex-container",
+      mouseControls: false,
+      touchControls: false,
+      gyroControls: false,
+      minHeight: 100,
+      minWidth: 100,
+      scale: 1.0,
+      scaleMobile: 1.00,
+      color: 0x0,
+      zoom: 0.5,
+    })
+  </script>
+  <script src="/script.js"></script>
+
+</html>
