@@ -23,6 +23,12 @@ body {
     display: flex;
 }
 
+#header-name {
+    text-transform: uppercase;
+    font-size: 2em;
+    color: black;
+}
+
 #burger-icon {
     padding: 20px;
     right: 0;
