@@ -43,35 +43,25 @@
         <img src="./burger-menu.png" height=75 width=75 alt="A small, three-line icon representing a hamburger menu. When clicked, it opens a dropdown menu." onmousedown="toggleBurger()"></a>
       </div>
       <div id="menu-links">
-        <a href="/admiralty_menu.pdf" id="menu1" target="_blank">Art</a>
+        <a href="#" id="menu1" onclick="showMenu('art'); return false;">Art</a>
         <img src="/rudder-bullet.png" alt="">
-        <a href="#" id="menu2" onclick="showMenu('glimpse'); return false;">Science</a>
+        <a href="#" id="menu2" onclick="showMenu('tech'); return false;">Tech</a>
         <img src="/rudder-bullet.png" alt="">
-        <a href="#" id="menu4" onclick="showMenu('music'); return false;">Strategy</a>
+        <a href="#" id="menu3" onclick="showMenu('strategy'); return false;">Strategy</a>
         <img src="/rudder-bullet.png" alt="">
       </div>
     </nav>
     <nav id="nav-burger" style="display: none">
       <div id="nav-burger-inside">
-        <a href="/admiralty_menu.pdf" id="menu1" target="_blank">Menu</a>
+        <a href="#" id="menu1" onclick="showMenu('art'); return false;">Art</a>
         <br>
         <img src="/rudder-bullet.png" alt="">
         <br>
-        <a href="#" id="menu2" onclick="showMenu('glimpse'); return false;">Look Inside</a>
-        <br>
-        <img src="/rudder-bullet.png" alt="">
-        <!-- <a href="#" id="menu3" onclick="showMenu('crew'); return false;">Crew</a>
-        <img src="/rudder-bullet.png"> -->
-        <br>
-        <a href="#" id="menu4" onclick="showMenu('music'); return false;">Music</a>
+        <a href="#" id="menu2" onclick="showMenu('tech'); return false;">Tech</a>
         <br>
         <img src="/rudder-bullet.png" alt="">
         <br>
-        <a href="#" id="menu5" onclick="showMenu('reviews'); return false;">Reviews</a>
-        <br>
-        <img src="/rudder-bullet.png" alt="">
-        <br>
-        <a href="/admiralty_happy_hour.pdf" id="menu6" target="_blank">Happy Hour</a>
+        <a href="#" id="menu3" onclick="showMenu('strategy'); return false;">Strategy</a>
       </div>
     </nav>
 
@@ -80,13 +70,13 @@
 
       <section id="frontpage">
         <div id="address-col">
-          <h3 id="address">Richard Hartnell<br>
-          Art x Science x Strategy</h3>
-          </div>
+          <!-- <h3 id="address">Richard Hartnell<br>
+          Art x Science x Strategy</h3> -->
+          
         </div>
       </section>
 
-      <section id="glimpse-wrapper">
+      <section id="art-wrapper">
         <figure>
           <img src="/images/admiralty_front_2.webp" alt="The sunlit front of the Admiralty Lounge, all glass with golden text and overflowing flower planters beneath."/>
         </figure>
@@ -116,7 +106,7 @@
         </figure>
       </section>
 
-      <section id="reviews-wrapper">
+      <section id="tech-wrapper">
         <div id="daily-review">
           <a href="https://www.cascadiadaily.com/news/2023/jul/15/review-the-admiralty-lounge/" target="_blank">
           <img src="/images/reviews/daily.webp" alt="A headline clickable headline linking to the Cascadia Daily's glowing review of Admiralty Lounge."/></a>
@@ -163,43 +153,27 @@
         </figure>
       </section>
 
-      <section id="crew-wrapper">
+      <section id="strategy-wrapper">
         <h1>Our Crew</h1>
         <div id="crew">
           <figure id="kat">
-            <img src="/images/admiralty_cocktail.webp"/></a>
+            <img src="/images/admiralty_cocktail.webp"/>
             <figcaption>When Chef Jeremiah Leighton came on board at Admiralty Lounge, he immediately brought his enthusiasm and joy for delicious food with him but his secret weapon is the unconventional approach he brings to putting flavors together. For Chef Jeremiah, there is no rule above the mandate to make our offerings as delicious as possible, and if that leads to unconventional places, all the better! We are so lucky tp have him and hope you'll come try his offerings soon!</figcaption>
           </figure>
           <figure id="jeremiah">
-            <img src="/images/admiralty_music.webp"/></a>
+            <img src="/images/admiralty_music.webp"/>
             <figcaption>When we set sail on the journey of The Admiralty, we knew we would need an experienced hand on the rudder who spoke our crazy shorthand and shared a passion for spectacular experiences. As many of you have already learned, Kat is that and much more; a veritable point of intersection on the paths of excellence and sass. Many of the menus favorites are her creation: The Cork Leg, The Wellerman, Dogfish Catfight and more leap from her mind to your glass. If you haven't had a chance to say hello, we'd say there's no time like the present!</figcaption>
           </figure>
           <figure id="jabriel">
-            <img src="/images/admiralty_front_2.webp" loading="lazy"/></a>
+            <img src="/images/admiralty_front_2.webp" loading="lazy"/>
             <figcaption>Lorem ipsum something or other. This is a long bio. It's gonna be long and go like this. Then there'll be another sentence like this.</figcaption>
           </figure>
-          <figure id="???">
-            <img src="/images/admiralty_deviled_eggs.webp" loading="lazy"/></a>
+          <figure id="what">
+            <img src="/images/admiralty_deviled_eggs.webp" loading="lazy"/>
             <figcaption>Lorem ipsum something or other. This is a long bio. It's gonna be long and go like this. Then there'll be another sentence like this.</figcaption>
           </figure>
         </div>
       </section>
-
-      <section id="music-wrapper">
-        <h1>MUSIC</h1>
-
-        <figure class="show">
-          <img class="show-pic" src="/images/music/raggedy_adler.webp" alt="Three young, farm-punky people stand in a field next to a barn playing a fiddle, a banjo, and the bones. They look like they play together really well.">
-          <figcaption class="show-info">
-            <section class="music-bio">
-              <h2>Raggedy Adler</h2>
-              <h6>Raggedy Adler is a transient folk, old-time, and punk band composed of queer vagabonds and train hoppers. We perform a variety of original compositions and historical folk tunes through the lens of our experiences living through disenfranchisement and building community. We hope to impart the stories of an oft overlooked underclass using the folk tradition as our medium.</h6>
-            </section>
-            <section class="showtime">
-              <h6>Tuesday, August 13<br>7p - 9p</h6>
-            </section>
-          </figcaption>
-        </figure>
 
     </main>
   </body>  
@@ -208,7 +182,7 @@
   <script src="vanta.waves.min.js"></script>
   <script>
     VANTA.WAVES({
-      el: "#flex-container",
+      el: "#",
       mouseControls: false,
       touchControls: false,
       gyroControls: false,
