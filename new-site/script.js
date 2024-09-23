@@ -14,7 +14,7 @@ burgerMenu.style.display = "";
 burgerMenu.style.pointerEvents = 'none';
 
 function toggleBurger() {
-  if (burgerMenu.style.opacity == 0) {
+  if (burgerMenu.style.opacity == '0') {
   burgerMenu.style.opacity = 1;
   burgerMenu.style.pointerEvents = 'auto';
   } else {
@@ -26,8 +26,6 @@ function toggleBurger() {
 function showMenu(menuId) {
   if (burgerMenuIcon.style.display == 'block' || burgerMenu.style.opacity == 1) {
     toggleBurger();
-  } else {
-    
   }
 
   if (menuId === 'art') {
