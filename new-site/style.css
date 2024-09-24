@@ -67,7 +67,7 @@ nav {
     min-width: 100vw;
     top: 0;
     z-index: 99;
-    /* background-color: #2d4756; */
+    background-color: seashell;
 }
 
 #nav-logo {
@@ -160,75 +160,23 @@ h5 {
     padding: 0px 0px 20px 0px;
 }
 
-#glimpse-wrapper {
+#art-wrapper {
     display: none;
     justify-content: center;
     flex-wrap: wrap;
-    /* max-width: 90%; */
 }
 
-#glimpse-wrapper figure img {
-    min-height: 100vh;
-    overflow-x: hidden;
-    border: 4px double goldenrod;
-    box-shadow: 1px 1px 6px black;
-}
-
-#reviews-wrapper {
+#tech-wrapper {
     display: none;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 }
 
-#reviews-wrapper img {
-    border: 4px double goldenrod;
-    box-shadow: 1px 1px 6px black;
-    min-width: 50%;
-}
-
-#reviews-wrapper figure img {
-    min-width: 30%;
-}
-
-#daily-review img {
-    max-width: 80vw;
-}
-
-#crew-wrapper {
+#strategy-wrapper {
     display: none;
     text-align: center;
     line-height: 1em;
-}
-
-#crew {
-    justify-items: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 0 auto;
-}
-
-#crew figure {
-    max-width: 70%;
-    padding: 10%;
-    margin: 0 auto;
-    
-}
-
-#crew img {
-    height: 550px;
-    border: 4px double goldenrod;
-}
-
-#crew figcaption {
-    text-align: center;
-    line-height: 1.3em;
-    font-size: 1.25em;
-    color: gold;
-    margin: 0 auto;
-    text-shadow: 0px 0px 20px goldenrod;
 }
 
 #music-wrapper {
