@@ -66,8 +66,9 @@ nav {
     position: fixed;
     min-width: 100vw;
     top: 0;
+    left: 0;
     z-index: 99;
-    background-color: seashell;
+    /* background-color: seashell; */
 }
 
 #nav-logo {
@@ -82,23 +83,13 @@ nav {
 }
 
 a {
-    color: white;
+    color: brown;
     text-decoration: none;
+    text-shadow: 1px 1px black;
 }
 
 a:hover {
     color: gold;
-}
-
-#toasttab-button, #reservation-button {
-    /* justify-self: center; */
-    height: 5em;
-    border: 2px solid seashell;
-    border-radius: 5%;
-    padding: 1em 1em;
-    margin: 2% 0;
-    font-size: 1.5em;
-    white-space: nowrap;
 }
 
 #menu-links {
@@ -359,16 +350,6 @@ h5 {
         display: flex;
         flex-direction: column;
     }
-
-    #toasttab-button, #reservation-button {
-        justify-self: center;
-        height: 1em;
-        border: 2px solid seashell;
-        border-radius: 5%;
-        padding: 1em 0;
-        font-size: 1.5em;
-        white-space: nowrap;
-    }    
 
     #nav-logo img {
         min-height: 5em;
