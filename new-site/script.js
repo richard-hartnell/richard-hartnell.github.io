@@ -1,5 +1,5 @@
 const art = document.getElementById('art-wrapper');
-const tech = document.getElementById('tech-wrapper');
+const science = document.getElementById('science-wrapper');
 const strategy = document.getElementById('strategy-wrapper');
    
 const menu1 = document.getElementById('menu1');
@@ -30,21 +30,21 @@ function showMenu(menuId) {
 
   if (menuId === 'art') {
     art.style.display = 'block';
-    tech.style.display = 'none';
+    science.style.display = 'none';
     strategy.style.display = 'none';
     menu1.style.fontWeight = 'bold';
     menu2.style.fontWeight = 'normal';
     menu3.style.fontWeight = 'normal';
-  } else if (menuId === 'tech') {
+  } else if (menuId === 'science') {
     art.style.display = 'none';
-    tech.style.display = 'block';
+    science.style.display = 'block';
     strategy.style.display = 'none';
     menu1.style.fontWeight = 'normal';
     menu2.style.fontWeight = 'bold';
     menu3.style.fontWeight = 'normal';
   } else if (menuId === 'strategy') {
     art.style.display = 'none';
-    tech.style.display = 'none';
+    science.style.display = 'none';
     strategy.style.display = 'block';
     menu1.style.fontWeight = 'normal';
     menu2.style.fontWeight = 'normal';

@@ -43,27 +43,23 @@
         <img src="./burger-menu.png" height=75 width=75 alt="A small, three-line icon representing a hamburger menu. When clicked, it opens a dropdown menu." onmousedown="toggleBurger()"></a>
       </div>
       <div id="menu-links">
-        <a href="#" id="menu1" onclick="showMenu('art'); return false;">Art</a>
-        •
-        <!-- <img src="/rudder-bullet.png" alt=""> -->
         <a href="#" id="menu2" onclick="showMenu('science'); return false;">Science</a>
         •
-        <!-- <img src="/rudder-bullet.png" alt=""> -->
+        <a href="#" id="menu1" onclick="showMenu('art'); return false;">Art</a>
+        •
         <a href="#" id="menu3" onclick="showMenu('strategy'); return false;">Strategy</a>
         <!-- <img src="/rudder-bullet.png" alt=""> -->
       </div>
     </nav>
     <nav id="nav-burger" style="display: none">
       <div id="nav-burger-inside">
+        <a href="#" id="menu2" onclick="showMenu('science'); return false;">Science</a>
+        <br>
+        •
+        <br>
         <a href="#" id="menu1" onclick="showMenu('art'); return false;">Art</a>
         <br>
         •
-        <!-- <img src="/rudder-bullet.png" alt=""> -->
-        <br>
-        <a href="#" id="menu2" onclick="showMenu('tech'); return false;">Tech</a>
-        <br>
-        •
-        <!-- <img src="/rudder-bullet.png" alt=""> -->
         <br>
         <a href="#" id="menu3" onclick="showMenu('strategy'); return false;">Strategy</a>
       </div>
@@ -89,7 +85,7 @@
         </figure>
       </section>
 
-      <section id="tech-wrapper">
+      <section id="science-wrapper">
         <figure>
           <img src="/images/reviews/review_1.webp" alt="A glowing five-star review from Google Maps."/>
         </figure>
